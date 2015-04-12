@@ -12,12 +12,12 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table)
+		Schema::create('teacher', function(Blueprint $table)
 		{
 			$table->increments('pk_id');
-			$table->integer('login');
-			$table->string('fishname', 255);
+			$table->string('email')->unique();
 			$table->string('password', 255);
+            $table->string('description', 255)->default(null);
 		});
 	}
 
