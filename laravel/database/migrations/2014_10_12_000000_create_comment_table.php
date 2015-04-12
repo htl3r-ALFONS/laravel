@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeacherTable extends Migration {
+class CreateCommentTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateTeacherTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('teacher', function(Blueprint $table)
+		Schema::create('comment', function(Blueprint $table)
 		{
 			$table->increments('pk_id');
-			$table->string('email')->unique();
-			$table->string('password', 255);
-            $table->string('description', 255)->default(null);
+			$table->timestamps();
+            $table->integer('fk_feedback');
+            $table->enum('from',['student','teacher']);         
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateTeacherTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('teacher');
+		Schema::drop('comment');
 	}
 
 }

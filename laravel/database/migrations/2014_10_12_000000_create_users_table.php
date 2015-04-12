@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->integer('login');
 			$table->string('fishname', 255);
 			$table->string('password', 255);
+            $table->integer('fk_class');
 		});
 	}
 
