@@ -30,4 +30,5 @@ Route::get('about', 'MyController@about');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+    'login' => 'Login\LoginController'
 ]);
