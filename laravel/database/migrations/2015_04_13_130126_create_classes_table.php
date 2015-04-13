@@ -15,9 +15,9 @@ class CreateClassesTable extends Migration {
 		Schema::create('classes', function(Blueprint $table)
 		{
 			$table->increments('pk_id');
-			$table->char('year');
-			$table->char('letter');
-			$table->char('branch');
+			$table->char('year', 1);
+			$table->char('letter', 1);
+			$table->char('branch', 1);
 		});
 	}
 
