@@ -15,13 +15,26 @@ class CreateFeedbackTable extends Migration {
 		Schema::create('feedback', function(Blueprint $table)
 		{
 			$table->increments('pk_id');
+
+			$table->integer('fk_teacher')
+				->unsigned()
+				->references('pk_id')->on('teachers');
+
+			$table->integer('fk_student')
+				->unsigned()
+				->references('pk_id')->on('students');
+
+			$table->integer('fk_question')
+				->unsigned()
+				->references('pk_id')->on('questions');
+
 			$table->string('content');
-			$table->integer('fk_teacher');
-            $table->integer('fk_question');
-			$table->integer('rating');
-            $table->integer('fk_student');
-            $table->boolean('show_fishname');
-            $table->boolean('show_classroom');
+
+			$table->tinyInteger('rating');
+
+			$table->boolean('show_fishname');
+
+			$table->boolean('show_classroom');
 		});
 	}
 
