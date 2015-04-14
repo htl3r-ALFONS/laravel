@@ -34,4 +34,5 @@ Route::get('feedback/create', 'FeedbackController@create');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+    'login' => 'Login\LoginController'
 ]);

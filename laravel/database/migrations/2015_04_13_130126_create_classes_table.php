@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionAskedToTable extends Migration {
+class CreateClassesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,12 @@ class CreateQuestionAskedToTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('QuestionAskedTo', function(Blueprint $table)
+		Schema::create('classes', function(Blueprint $table)
 		{
-			$table->integer('pk_fk_question');
-            $table->integer('pk_fk_class');
+			$table->increments('pk_id');
+			$table->char('year', 1);
+			$table->char('letter', 1);
+			$table->char('branch', 1);
 		});
 	}
 
@@ -26,7 +28,7 @@ class CreateQuestionAskedToTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('QuestionAskedTo');
+		Schema::drop('classes');
 	}
 
 }
