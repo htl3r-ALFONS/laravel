@@ -23,6 +23,10 @@ Route::get('contact', 'MyController@contact');
 
 Route::get('about', 'MyController@about');
 
+//Routen für das Absenden eines Feedbacks
+
+Route::get('feedback/create', 'FeedbackController@create');
+
 
 //my routes end
 
