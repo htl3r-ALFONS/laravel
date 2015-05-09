@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Feedback;
+use Request;
+
 class FeedbackController extends Controller {
 	public function __construct()
 	{
@@ -9,5 +12,11 @@ class FeedbackController extends Controller {
 
     public function create() {
         return view('feedback.create');
+    }
+    
+    public function store() {
+        $input = Request::all();
+        
+        return $input;
     }
 }
