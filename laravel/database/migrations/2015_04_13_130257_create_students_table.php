@@ -23,9 +23,9 @@ class CreateStudentsTable extends Migration {
 			$table->string('fishname', 255)
 				->unique();
 
-			$table->integer('fk_class')
+			$table->integer('fk_classroom')
 				->unsigned()
-				->references('pk_id')->on('classes');
+				->references('pk_id')->on('classrooms');
 		});
 	}
 
