@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Login;
+<?php namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\Student;
@@ -8,7 +8,7 @@ use App\Http\Requests\StudentLoginRequest;
 class LoginController extends Controller {
 
     public function getStudent() {
-        return view('myPage.login.students');
+        return view('myPage.login.student');
     }
     
     public function postStudent(StudentLoginRequest $request) {

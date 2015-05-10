@@ -9,6 +9,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 class User extends Model implements AuthenticatableContract /*, CanResetPasswordContract*/ {
 
 	use Authenticatable /*, CanResetPassword*/ ;
+    
+    public $timestamps = false;
 
 	protected $fillable = ['password'];
 
