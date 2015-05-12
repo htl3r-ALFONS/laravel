@@ -11,7 +11,7 @@ Register
 
 @section('content')
 
-<a href="{{ action('Auth\RegisterController@getStudent') }}">Students</a>
-<a href="{{ action('Auth\RegisterController@getTeacher') }}">Teachers</a>
+<a href="{{ $student_link }}">Students</a>
+<a href="{{ $teacher_link }}">Teachers</a>
 
 @stop
