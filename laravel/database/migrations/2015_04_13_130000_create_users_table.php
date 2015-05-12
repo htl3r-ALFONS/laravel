@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration {
 		{
 			$table->increments('pk_id');
 
-			$table->string('password');
+			$table->string('password')
+                ->nullable;
 		});
 	}
 
