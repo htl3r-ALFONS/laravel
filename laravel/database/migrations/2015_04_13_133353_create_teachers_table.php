@@ -19,6 +19,9 @@ class CreateTeachersTable extends Migration {
 			$table->integer('fk_user')
 				->unsigned()
 				->references('pk_id')->on('users');
+            
+            $table->string('name')
+                ->unique();
 
 			$table->string('email')
 				->unique();
