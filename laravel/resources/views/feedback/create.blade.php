@@ -9,14 +9,14 @@
     {!! Form::open(['url' => 'feedback']) !!}
         <div class="form-group">
             {!! Form::label('teacher','Lehrer:') !!}
-            {!! Form::select('teachersel', ['class' => 'form-control']) !!}
+            {!! Form::select('teacher', $teachers) !!}
             {!! Form::label('fishname','Username anzeigen') !!}
-            {!! Form::checkbox('fishName') !!}
+            {!! Form::checkbox('fishname') !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('feedback','Feedback:') !!}
-            {!! Form::textarea('feedbackText', null, ['class' => 'form-control']) !!}
+            {!! Form::textarea('feedback', null, ['class' => 'form-control']) !!}
             {!! Form::submit('Send Feedback', ['class' => 'form-control']); !!}
         </div>
     {!! Form::close() !!}

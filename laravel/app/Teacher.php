@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Auth\Passwords\CanResetPassword;
 
-class Teacher extends Model, CanResetPasswordContract {
+class Teacher extends Model implements CanResetPasswordContract {
     
     use CanResetPassword;
     
