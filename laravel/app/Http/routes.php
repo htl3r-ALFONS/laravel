@@ -28,6 +28,11 @@ Route::get('about', 'MyController@about');
 Route::get('feedback/create', 'FeedbackController@create');
 Route::post('feedback', 'FeedbackController@store');
 
+//Routen zum absenden einer Frage
+
+Route::get('question/create', 'QuestionController@create');
+Route::post('question', 'QuestionController@store');
+
 //my routes end
 
 
