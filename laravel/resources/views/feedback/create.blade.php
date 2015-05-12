@@ -12,6 +12,8 @@
             {!! Form::select('teacher', $teachers) !!}
             {!! Form::label('fishname','Username anzeigen') !!}
             {!! Form::checkbox('fishname') !!}
+            {!! Form::label('class','Klasse anzeigen') !!}
+            {!! Form::checkbox('class') !!}
         </div>
 
         <div class="form-group">
