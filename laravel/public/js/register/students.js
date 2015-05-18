@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
         file = input_file.files[0];
         if (!file) {
             throw "No file given";
-        } else if (file.type !== "text/csv") {
+        } else if (["application/vnd.ms-excel", "text/plain", "text/csv"].indexOf(file.type) === -1) {
             throw "Given file is not a csv file";
         }
         
