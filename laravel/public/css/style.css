@@ -1,0 +1,92 @@
+.navbar-header {
+    padding: 15px;
+    padding-bottom:0px;
+}
+.navbar-brand {
+    float:none;
+}
+.navbar-custom.navbar-fixed-top {
+    background-color: #fcb03c;
+}
+.navbar-brand.head {
+    color:black;
+}
+.navbar-brand.foot {
+    color:white;
+}
+.navbar-custom.navbar-fixed-bottom {
+    background-color: black;
+}
+body{
+    padding-top:52px;
+    padding-bottom:52px;
+    background-repeat:no-repeat;
+}
+body.alfons1 {
+    background-image:url('../alfons.png');
+    background-position: 7vw 10vh; 
+}
+body.alfons2{
+    
+}
+.row{
+    max-width:98vw;
+}
+img {
+    width:30vw;
+}
+p {
+    font-weight:bold;
+}
+
+.inhalt {
+    background-color:white;
+}
+.input-group, .input-group + .btn-block{
+    width:20vw;
+}
+.padding {
+    margin:30vmin;
+    margin-bottom:0px;
+    margin-right:0px;
+}
+.btn.new {
+    margin:7px;
+}
+#home-bootstrap-menu.navbar-custom .navbar-brand {
+    color: rgba(0, 0, 0, 1);
+}
+#home-bootstrap-menu.navbar-custom {
+    font-size: 16px;
+    background-color: rgba(252, 176, 60, 1);
+    border-bottom-width: 1px;
+}
+#home-bootstrap-menu.navbar-custom .navbar-nav>li>a {
+    color: rgba(110, 110, 110, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#home-bootstrap-menu.navbar-custom .navbar-nav>li>a:hover,
+#home-bootstrap-menu.navbar-custom .navbar-nav>li>a:focus {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#home-bootstrap-menu.navbar-custom .navbar-nav>.active>a,
+#home-bootstrap-menu.navbar-custom .navbar-nav>.active>a:hover,
+#home-bootstrap-menu.navbar-custom .navbar-nav>.active>a:focus {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 216, 153, 1);
+}
+#home-bootstrap-menu.navbar-custom .navbar-toggle {
+    border-color: #ffd899;
+}
+#home-bootstrap-menu.navbar-custom .navbar-toggle:hover,
+#home-bootstrap-menu.navbar-custom .navbar-toggle:focus {
+    background-color: #ffd899;
+}
+#home-bootstrap-menu.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #ffd899;
+}
+#home-bootstrap-menu.navbar-custom .navbar-toggle:hover .icon-bar,
+#home-bootstrap-menu.navbar-custom .navbar-toggle:focus .icon-bar {
+    background-color: #fcb03c;
+}
