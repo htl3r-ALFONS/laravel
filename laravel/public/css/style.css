@@ -2,6 +2,38 @@
     padding: 15px;
     padding-bottom:0px;
 }
+img.lehrer{
+    width:200px;
+    max-height:200px;
+}
+.feedback{
+    background-color:#DDD;
+    padding:1px;
+}
+.comment.teachercomment h5{
+    font-weight:bold;
+}
+.comment{
+}
+.feedbackbox, .frage{
+    background-color:#EEE;
+    padding:5px;
+    padding-bottom:50px;
+    min-height:230px;
+    margin-bottom:20px;
+}
+.input-group.feedbackbox{
+    margin-top:10px;
+    padding:0px;
+    float:right;
+    min-height:0px;
+}
+.thumbnail{
+    display:block;
+    width:200px;
+    float:left;
+    margin:10px;
+}
 .navbar-brand {
     float:none;
 }
@@ -35,7 +67,7 @@ body.alfons2{
 img {
     width:30vw;
 }
-p {
+p.bold {
     font-weight:bold;
 }
 

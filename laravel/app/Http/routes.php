@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'MyController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -23,11 +23,11 @@ Route::get('contact', 'MyController@contact');
 
 Route::get('about', 'MyController@about');
 
-Route::get('test', 'MyController@robin');
-Route::get('test2', 'MyController@test2');
+Route::get('index', 'MyController@index');
+Route::get('login', 'MyController@login');
 Route::get('test3', 'MyController@test3');
-Route::get('test4', 'MyController@test4');
-Route::get('test5', 'MyController@test5');
+Route::get('students', 'MyController@students');
+Route::get('teachers', 'MyController@teachers');
 
 
 

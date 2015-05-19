@@ -17,21 +17,22 @@ class MyController extends Controller {
 		return view('myPage.contact')->with('mail', $mail);
 	}
     
-    public function robin() {
+    public function index() {
         return view('myPage.index');
     }
-    public function test2() {
+    public function login() {
         return view('myPage.login');
     }
     public function test3() {
         return view('myPage.homemasterview');
     }
-    public function test4() {
+    public function students() {
         return view('myPage.studenthome');
     }
-    public function test5() {
+    public function teachers() {
         return view('myPage.teacherhome');
     }
+    
     
     
     

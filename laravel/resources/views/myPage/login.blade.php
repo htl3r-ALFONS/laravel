@@ -2,7 +2,7 @@
 
 <div class="padding">
     <h1>Log in</h1>
-    <p>Verwende deinen Benutzernamen und dein Passwort wenn du ein Schüler bist.<br>Bist du ein Lehrer, verwende deine Emailadresse<br>Wenn du dein Passwort vergessen hast, klick hier</p>
+    <p class="bold">Verwende deinen Benutzernamen und dein Passwort wenn du ein Schüler bist.<br>Bist du ein Lehrer, verwende deine Emailadresse<br>Wenn du dein Passwort vergessen hast, klick hier</p>
     
         <div class="input-group">
   <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
