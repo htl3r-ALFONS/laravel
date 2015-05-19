@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'MyController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -22,6 +22,14 @@ Route::get('contact', 'MyController@contact');
 
 
 Route::get('about', 'MyController@about');
+
+Route::get('index', 'MyController@index');
+Route::get('login', 'MyController@login');
+Route::get('test3', 'MyController@test3');
+Route::get('students', 'MyController@students');
+Route::get('teachers', 'MyController@teachers');
+
+
 
 //Routen für das Absenden eines Feedbacks
 

@@ -16,5 +16,25 @@ class MyController extends Controller {
 		$mail="lukas.moertl@gmx.at";
 		return view('myPage.contact')->with('mail', $mail);
 	}
+    
+    public function index() {
+        return view('myPage.index');
+    }
+    public function login() {
+        return view('myPage.login');
+    }
+    public function test3() {
+        return view('myPage.homemasterview');
+    }
+    public function students() {
+        return view('myPage.studenthome');
+    }
+    public function teachers() {
+        return view('myPage.teacherhome');
+    }
+    
+    
+    
+    
 
 }
