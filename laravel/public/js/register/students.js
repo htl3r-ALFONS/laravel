@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
             var li = document.createElement("li");
             li.textContent = message;
             logger.appendChild(li);
+            return li;
         };
         logger.clear = function clear() {
             while (logger.firstChild) {
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
         file = input_file.files[0];
         if (!file) {
             throw "No file given";
-        } else if (file.type !== "text/csv") {
+        } else if (["application/vnd.ms-excel", "text/plain", "text/csv"].indexOf(file.type) === -1) {
             throw "Given file is not a csv file";
         }
         
@@ -82,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
     };
     
     on_file_read = function on_file_read() {
-        var lines,
+        var classrooms,
+            lines,
             success;
         
         logger.log("Processing file");
@@ -118,57 +120,72 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
         
         logger.log("Adding students");
         
-        success = Object.keys(students).every(function for_each_class(classroom) {
-            logger.log("Adding " + classroom);
-            
-            var formdata = new FormData(),
-                request_prepare = new XMLHttpRequest();
-            
+        classrooms = Object.keys(students);
+        
+        if (classrooms.length === 0) {
+            throw "No classrooms";
+        }
+        
+        (function for_each_classroom(index) {
+            var classroom = classrooms[index],
+                log = logger.log("Adding " + classroom + "..."),
+                formdata = new FormData(),
+                request = new XMLHttpRequest();
+
             formdata.append("_token", token);
             formdata.append("count", students[classroom].length);
             formdata.append("classroom", classroom);
-            
-            request_prepare.addEventListener("load", on_inserted(classroom));
-            request_prepare.addEventListener("error", on_error);
-            request_prepare.open("POST", "/register/student", false);
-            request_prepare.send(formdata);
-            
-            return request_prepare.status === 200;
-        });
-        
-        if (success) {
-            on_success();
-        }
+
+            request.addEventListener("load", function () {
+                on_inserted(classroom, request);
+                
+                if (request.status === 200) {
+                    log.textContent += "Done";
+                    if ((index + 1) in classrooms) {
+                        for_each_classroom(index + 1);
+                    } else {
+                        on_success();
+                    }
+                } else {
+                    log.textContent += "Error";
+                    on_error();
+                }
+            });
+            request.addEventListener("error", function () {
+                log.textContent += "Error";
+                on_error();
+            });
+            request.open("POST", "/register/student", true);
+            request.send(formdata);
+        }(0));
     };
     
-    on_inserted = function gen_on_inserted(classroom) {
-        return function on_inserted() {
-            var formdata,
-                request_insert,
-                response;
+    on_inserted = function on_inserted(classroom, request) {
+        var formdata,
+            request_insert,
+            response;
 
-            if (this.status !== 200) {
-                throw "Server error";
-            }
+        if (request.status !== 200) {
+            on_error();
+        }
 
-            response = JSON.parse(this.responseText);
+        response = JSON.parse(request.responseText);
 
-            if (response.length !== students[classroom].length) {
-                on_error();
-            } else {
-                students[classroom].forEach(function for_each_student(student, index) {
-                    // select random (student_id,fishname,password) entry
-                    var entry = (response.splice(
-                        Math.random() * response.length,
-                        1
-                    ))[0];
-                    
-                    students[classroom][index].id = entry.student_id;
-                    students[classroom][index].fishname = entry.fishname;
-                    students[classroom][index].password = entry.password;
-                });
-            }
-        };
+        if (response.length !== students[classroom].length) {
+            on_error();
+        } else {
+            students[classroom].forEach(function for_each_student(student, index) {
+                // select random (student_id,fishname,password) entry
+                var entry = (response.splice(
+                    Math.random() * response.length,
+                    1
+                ))[0];
+
+                students[classroom][index].id = entry.student_id;
+                students[classroom][index].fishname = entry.fishname;
+                students[classroom][index].password = entry.password;
+            });
+        }
     };
     
     on_error = function on_error() {
@@ -220,12 +237,14 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
         student_ids_link = document.createElement("a");
         student_ids_link.setAttribute("href", student_ids);
         student_ids_link.setAttribute("target", "_blank");
+        student_ids_link.setAttribute("download", "student_ids.txt");
         student_ids_link.textContent = "Ids";
         document.body.appendChild(student_ids_link);
         
         student_passwords_link = document.createElement("a");
         student_passwords_link.setAttribute("href", student_passwords);
         student_passwords_link.setAttribute("target", "_blank");
+        student_passwords_link.setAttribute("download", "student_logins.txt");
         student_passwords_link.textContent = "Logins";
         document.body.appendChild(student_passwords_link);
     };

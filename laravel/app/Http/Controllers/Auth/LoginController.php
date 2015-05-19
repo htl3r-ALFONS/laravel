@@ -12,9 +12,9 @@ class LoginController extends Controller {
     }
     
     public function postStudent(StudentLoginRequest $request) {
-        $student = Student::where('fishname', '=', $request->input('fishname'))->firstOrFail();
-        Auth::loginUsingId($student->user->id);
-        return redirect('/login/student');
+        $student = Student::where('fishname', $request->input('fishname'))->firstOrFail();
+        Auth::attempt(['id' => $student->user->id, 'password' => $request->input('password')]);
+        return redirect()->secure('/login/student');
     }
     
     public function getTeacher() {
