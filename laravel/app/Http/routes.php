@@ -34,13 +34,17 @@ Route::get('teachers', 'MyController@teachers');
 //Routen für das Absenden eines Feedbacks
 
 Route::get('feedback/create', 'FeedbackController@create');
+Route::post('feedback', 'FeedbackController@store');
 
+//Routen zum absenden einer Frage
+
+Route::get('question/create', 'QuestionController@create');
+Route::post('question', 'QuestionController@store');
 
 //my routes end
 
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-    'login' => 'Login\LoginController'
+    'login' => 'Auth\LoginController',
+    'register' => 'Auth\RegisterController'
 ]);

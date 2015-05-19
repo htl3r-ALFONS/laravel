@@ -26,11 +26,15 @@ class CreateFeedbackTable extends Migration {
 
 			$table->integer('fk_question')
 				->unsigned()
-				->references('pk_id')->on('questions');
+				->references('pk_id')->on('questions')
+                ->nullable()
+                ->default(null);
 
 			$table->string('content');
 
-			$table->tinyInteger('rating');
+			$table->tinyInteger('rating')
+                ->nullable(
+                ->default(null);
 
 			$table->boolean('show_fishname');
 

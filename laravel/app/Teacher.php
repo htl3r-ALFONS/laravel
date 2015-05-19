@@ -1,8 +1,14 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
-class Teacher extends Model {
+class Teacher extends Model implements CanResetPasswordContract {
+    
+    use CanResetPassword;
+    
+    public $timestamps = false;
     
     public function user() {
         return $this->belongsTo('App\User', 'fk_user');
