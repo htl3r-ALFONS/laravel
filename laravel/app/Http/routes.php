@@ -28,6 +28,8 @@ Route::get('login', 'MyController@login');
 Route::get('test3', 'MyController@test3');
 Route::get('students', 'MyController@students');
 Route::get('teachers', 'MyController@teachers');
+Route::get('settings', 'MyController@settings');
+Route::get('feedback', 'MyController@feedback');
 
 
 
