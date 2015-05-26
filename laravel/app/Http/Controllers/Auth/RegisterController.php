@@ -78,25 +78,23 @@ class RegisterController extends Controller {
     }
     
     public function postTeacher(TeacherRegisterRequest $request) {
-        $teachers_input = json_decode($request->input('teachers'));
+        $teacher_names = $request->input('names');
+        $teacher_emails = $request->input('emails');
         
-        foreach ($teachers_input as $teacher_input) {
-            foreach (['name', 'email'] as $field) {
-                if (!isset($teacher_input[$field])) {
-                    return redirect()->back();
-                }
-            }
-        }
+        $teachers_input = array_combine($teacher_names, $teacher_emails);
         
-        foreach ($teachers_input as $teachers_input) {
-            $user = User::create();
-            
-            $teacher = new Teacher;
-            $teacher->name = $teacher_input['name'];
-            $teacher->user()->associate($user);
-            $teacher->save();
-            
-            $passwords->sendResetLink($teacher->toArray());
+        foreach ($teachers_input as $name => $email) {
+            \DB::transaction(function () use ($name, $email) {
+                $user = User::create(['password' => null]);
+
+                $teacher = new Teacher;
+                $teacher->name = $name;
+                $teacher->email = $email;
+                $teacher->user()->associate($user);
+                $teacher->save();
+
+                $this->passwords->sendResetLink($teacher->toArray());
+            });
         }
     }
 
