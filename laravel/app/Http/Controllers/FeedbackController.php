@@ -18,15 +18,14 @@ class FeedbackController extends Controller {
     
     public function store() {
         /* probe von eloquent */
-        $teacher = Teacher::find(Request::get(''));
+        $teacher = Teacher::find(Request::get('teacher'));
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        $feedback->fishname = false;
+        $feedback->show_fishname = Request::get('fishname');
+        $feedback->content = Request::get('feedback');
+        $feedback->student()->associate(Auth::user()->student());
+        $feedback->show_classname = Request::get('classname');
         $feedback->save();
-        $feedback = Feedback::create(['teacher' => Request::get(''), 'feedback' => Request::get(''),'fishname' => Request::get('')]);
-        $input = Request::all();
-        
-        return $input;
     }
 }

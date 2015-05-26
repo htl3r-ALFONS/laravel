@@ -48,7 +48,8 @@ class RegisterController extends Controller {
             $classroom->branch = $classroom_string[2];
             $classroom->save();
         }
-        
+
+        $results = Student::lists('fishname');
         for ($i = 0; $i < $count; $i += 1) {
             $password = str_random(20);
             
@@ -58,7 +59,16 @@ class RegisterController extends Controller {
             
             $student = new Student;
             $student->user()->associate($user);
-            $student->fishname = str_random(20); // TODO actual fishname
+            
+            while(true) {
+                $blockfishname = \FishName::blockfish();
+                if (!in_array($blockfishname, $results))  {
+                    $results[] = $blockfishname;
+                    break;
+                }
+            }
+
+            $student->fishname = $blockfishname;
             $student->classroom()->associate($classroom);
             $student->save();
             
