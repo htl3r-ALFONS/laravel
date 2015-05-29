@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Classroom;
-use App\Feedback;
+use App\Question;
 use Request;
 
 class QuestionController extends Controller {
@@ -18,13 +18,14 @@ class QuestionController extends Controller {
     
     public function store() {
         /* probe von eloquent */
-        $teacher = Teacher::find(Request::get('teacher'));
+        $teacher = \Auth::user()->teacher("");
+        $class = Classroom::find(Request::get('class'));
         
-        $feedback = new Feedback;
-        $feedback->teacher()->associate($teacher);
-        $feedback->classes()->associate(Request::get('class'));
-        $feedback->content = Request::get('question');
-        $feedback->show_classname = Request::get('classname');
-        $feedback->save();
+        $question = new Question;
+        $question->teacher()->associate($teacher);
+        $question->classes()->associate($class);
+        $question->content = Request::get('question');
+        $question->show_classname = Request::get('classname');
+        $question->save();
     }
 }

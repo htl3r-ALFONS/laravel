@@ -6,7 +6,7 @@
 
     <hr/>
 
-    {!! Form::open(['url' => 'feedback']) !!}
+    {!! Form::open(['url' => 'question']) !!}
         <div class="form-group">
             {!! Form::label('classes','Klasse:') !!}
             {!! Form::select('classes', $classrooms) !!}

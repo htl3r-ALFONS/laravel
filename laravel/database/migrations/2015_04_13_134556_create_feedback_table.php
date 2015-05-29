@@ -33,7 +33,7 @@ class CreateFeedbackTable extends Migration {
 			$table->string('content');
 
 			$table->tinyInteger('rating')
-                ->nullable(
+                ->nullable()
                 ->default(null);
 
 			$table->boolean('show_fishname');
