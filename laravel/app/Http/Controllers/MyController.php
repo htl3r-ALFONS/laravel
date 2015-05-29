@@ -32,12 +32,26 @@ class MyController extends Controller {
     public function teachers() {
         return view('myPage.teacherhome');
     }
-    public function settings() {
-        return view('myPage.settings');
+    public function studentsettings() {
+        return view('myPage.studentsettings');
     }
+    public function teachersettings() {
+        return view('myPage.teachersettings');
+    }
+    
     public function feedback() {
         return view('myPage.lehrerliste');
     }
+    public function impressum() {
+        return view('myPage.impressum');
+    }
+    public function neuesfeedback() {
+        return view('myPage.newfeedback');
+    }
+    public function neuefrage() {
+        return view('myPage.newquestion');
+    }
+    
     
     
     
