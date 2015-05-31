@@ -44,8 +44,16 @@ Neues Feedback
             <a href="#" class="thumbnail">
                 <img class="lehrer" src="http://a3.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjM0MjA1MzQxMTk2.jpg" alt="Lehrer">
             </a>
-            <h2>Frage:</h2>
-            <h3>Wie kann ich meinen Unterricht noch verbessern</h3>
+            <h3>Wie kann ich meinen Unterricht noch verbessern?<small> - Fachlehrer Chris Tucker</small></h3>
+            <div class="nocomments">
+                Keine Kommentare bis jetzt... :(
+            </div>
+            <div class="input-group feedbackbox">
+                <input type="text" class="form-control" placeholder="kommentieren...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Senden</button>
+                </span>
+            </div>
         </div>
     </div>
     
