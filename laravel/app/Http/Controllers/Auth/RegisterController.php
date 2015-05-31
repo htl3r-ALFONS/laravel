@@ -12,9 +12,7 @@ use Illuminate\Routing\UrlGenerator;
 
 class RegisterController extends Controller {
     
-    private $passwords;
-    
-    private $urls;
+    protected $urls;
     
     public function __construct(TeacherPasswordBroker $passwords, UrlGenerator $urls) {
         $this->passwords = $passwords;
