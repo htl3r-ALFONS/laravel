@@ -33,6 +33,19 @@ class MyController extends Controller {
         return view('myPage.teacherhome');
     }
     
+    public function fragen(){
+        return view('myPage.fragen');
+        
+    }
+    
+    public function feedback(){
+        return view('myPage.feedbackteacher');
+        
+    }
+    
+    public function profilteacher(){
+        return view('myPage.profilteacher');
+    }
     
     
     

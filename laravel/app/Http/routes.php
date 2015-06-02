@@ -28,9 +28,9 @@ Route::get('login', 'MyController@login');
 Route::get('test3', 'MyController@test3');
 Route::get('students', 'MyController@students');
 Route::get('teachers', 'MyController@teachers');
-
-
-
+Route::get('fragen','MyController@fragen');
+Route::get('feedback','MyController@feedback');
+Route::get('profilteacher','MyController@profilteacher');
 //Routen für das Absenden eines Feedbacks
 
 Route::get('feedback/create', 'FeedbackController@create');
