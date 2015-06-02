@@ -8,21 +8,18 @@ use App\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentRegisterRequest;
 use App\Http\Requests\TeacherRegisterRequest;
-use Illuminate\Routing\UrlGenerator;
 
 class RegisterController extends Controller {
     
-    protected $urls;
-    
-    public function __construct(TeacherPasswordBroker $passwords, UrlGenerator $urls) {
+    public function __construct(TeacherPasswordBroker $passwords) {
         $this->passwords = $passwords;
-        $this->urls = $urls;
     }
     
     public function getIndex() {
-        return view('myPage.register.index')
-            ->with('student_link', $this->urls->secure($this->urls->action('Auth\RegisterController@getStudent', [], false)))
-            ->with('teacher_link', $this->urls->secure($this->urls->action('Auth\RegisterController@getTeacher', [], false)));
+        return view('myPage.register.index', [
+            'student_link' => action('Auth\RegisterController@getStudent'),
+            'teacher_link' => action('Auth\RegisterController@getTeacher')
+        ]);
     }
 
     public function getStudent() {
