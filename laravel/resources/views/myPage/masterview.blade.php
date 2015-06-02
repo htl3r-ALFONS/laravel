@@ -20,7 +20,7 @@
 </nav>
 <nav class="navbar navbar-custom navbar-fixed-bottom">
 	<div class="navbar-header">
-      <a class="navbar-brand foot" href="."><u>Impressum</u></a>
+      <a class="navbar-brand foot" href="/impressum"><u>Impressum</u></a>
     </div>
 </nav>
 @yield('content')
