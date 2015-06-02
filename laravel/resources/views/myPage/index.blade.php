@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                <button type="button" class="btn btn-primary btn-block">Login</button>
+                <a href="login"><button type="button" class="btn btn-primary btn-block">Login Here</button></a>
             </div>
         </div>
 </div>

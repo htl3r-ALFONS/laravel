@@ -6,7 +6,7 @@ Neue Frage
 Neue Frage
 @stop
 @section('active')
-                <li><a href="students">Home</a>
+                <li><a href=".">Home</a>
                 </li>
                 <li><a href="feedback">Mein Feedback</a>
                 </li>

@@ -51,6 +51,12 @@ b,
 strong {
   font-weight: bold;
 }
+
+text{
+    font-size:122px;
+    
+}
+
 dfn {
   font-style: italic;
 }
