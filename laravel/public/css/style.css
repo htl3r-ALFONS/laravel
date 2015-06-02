@@ -6,6 +6,21 @@ img.lehrer{
     width:200px;
     max-height:200px;
 }
+.fenster{
+    margin:20px;
+    background-color:rgba(0,0,255,0.1);
+    border-radius:10px;
+    padding:20px;
+}
+textarea{
+    width:100%;
+}
+.chgPw{
+    width:50%;
+}
+.chgPw div, .chgPw button.btn-block{
+    width:100%;
+}
 .feedback{
     background-color:#DDD;
     padding:1px;
@@ -21,6 +36,12 @@ img.lehrer{
     padding-bottom:50px;
     min-height:230px;
     margin-bottom:20px;
+}
+.nocomments{
+    margin-top:30px;
+    margin-bottom:30px;
+    font-style:italic;
+    text-align:center;
 }
 .input-group.feedbackbox{
     margin-top:10px;

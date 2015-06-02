@@ -28,6 +28,12 @@ Route::get('login', 'MyController@login');
 Route::get('test3', 'MyController@test3');
 Route::get('students', 'MyController@students');
 Route::get('teachers', 'MyController@teachers');
+Route::get('studentsettings', 'MyController@studentsettings');
+Route::get('teachersettings', 'MyController@teachersettings');
+Route::get('feedback', 'MyController@feedback');
+Route::get('neuesfeedback', 'MyController@neuesfeedback');
+Route::get('neuefrage', 'MyController@neuefrage');
+Route::get('impressum', 'MyController@impressum');
 
 
 Route::get('teachers/myFeedback', 'MyController@teachersF');
@@ -49,5 +55,6 @@ Route::post('question', 'QuestionController@store');
 
 Route::controllers([
     'login' => 'Auth\LoginController',
-    'register' => 'Auth\RegisterController'
+    'register' => 'Auth\RegisterController',
+    'password' => 'Auth\PasswordController'
 ]);

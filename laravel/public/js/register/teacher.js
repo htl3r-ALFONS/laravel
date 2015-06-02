@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function on_dom_load() {
             formdata.append("_token", token);
             teachers.forEach(function for_each_teacher(teacher) {
                 formdata.append("names[]", teacher.name);
-                formdata.append("email[]", teacher.email);
+                formdata.append("emails[]", teacher.email);
             });
             
             request.addEventListener("load", on_inserted);
