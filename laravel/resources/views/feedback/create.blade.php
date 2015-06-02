@@ -1,4 +1,4 @@
-@extends('app')
+@extends('myPage.homemasterview')
 
 @section('content')
 

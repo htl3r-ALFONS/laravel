@@ -1,4 +1,4 @@
-@extends('myPage.masterview')
+@extends('myPage.homemasterview')
 
 <div class="padding">
     <h1>Log in</h1>
