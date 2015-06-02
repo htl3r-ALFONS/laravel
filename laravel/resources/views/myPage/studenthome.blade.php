@@ -44,7 +44,7 @@ Neues Feedback
                         </div>
                     @endif
                 @endif
-            @stopforeach
+            @endforeach
             <div class="input-group feedbackbox">
                 <input type="text" class="form-control" placeholder="kommentieren...">
                 <span class="input-group-btn">
@@ -52,7 +52,7 @@ Neues Feedback
                 </span>
             </div>
         </div>
-        @stopforeach
+        @endforeach
         @foreach ($questions as $question)
         <div class="frage">
             <a href="#" class="thumbnail">
@@ -76,8 +76,8 @@ Neues Feedback
                         </div>
                     @endif
                 @endif
-            @stopforeach
-            @stopforeach
+            @endforeach
+            @endforeach
             <div class="input-group feedbackbox">
                 <input type="text" class="form-control" placeholder="kommentieren...">
                 <span class="input-group-btn">
@@ -85,7 +85,7 @@ Neues Feedback
                 </span>
             </div>
         </div>
-        @stopforeach
+        @endforeach
     </div>
     
 </div>
