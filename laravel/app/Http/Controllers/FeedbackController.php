@@ -17,7 +17,6 @@ class FeedbackController extends Controller {
     }
     
     public function store() {
-        /* probe von eloquent */
         $teacher = Teacher::find(Request::get('teacher'));
         
         $feedback = new Feedback;

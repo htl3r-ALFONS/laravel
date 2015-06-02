@@ -10,7 +10,7 @@ Neues Feedback
                 </li>
                 <li><a href="feedback">Mein Feedback</a>
                 </li>
-                <li><a href="settings">Einstellungen</a>
+                <li><a href="studentsettings">Einstellungen</a>
                 </li>
 @stop
 <div class="row">
