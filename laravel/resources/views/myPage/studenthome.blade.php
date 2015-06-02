@@ -6,11 +6,11 @@ Home
 Neues Feedback
 @stop
 @section('active')
-<li class="active"><a href="/">Home</a>
+<li class="active"><a href="#">Home</a>
                 </li>
-                <li><a href="feedback">Mein Feedback</a>
+                <li><a href="students/feedback">Mein Feedback</a>
                 </li>
-                <li><a href="studentsettings">Einstellungen</a>
+                <li><a href="students/settings">Einstellungen</a>
                 </li>
 @stop
 <div class="row">
