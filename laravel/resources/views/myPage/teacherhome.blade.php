@@ -24,9 +24,13 @@ Neue Frage
         <div class="feedbackbox">
             <h2>Feedbacks:</h2>
             
-         
+            <div class="feedback">
             <h5><b>Blockfisch7:</b></h5>
             <p>Yo Prof ich finde ihr Unterricht könnte etwas mehr musikalische Untermalung vertragen peace</p>    
+            </div>
+            <div class="comment teachercomment">
+                <p><b>Ich:</b> Euch verdammte Hippies brauch ich im Unterricht nicht!</p>
+            </div>
             
             <div class="comment">
                 <p><b>Blockfisch7:</b> Diese Art unkonstruktive Reaktion hilft wirklich niemanden!</p>
@@ -43,9 +47,10 @@ Neue Frage
             <h2>Frage:</h2>
             <h3>Wie kann ich meinen Unterricht noch verbessern?</h3>
         
-            <div class="antworten">
+            <div class="feedback">
                 <h2>Antworten:</h2>
                 <h4><a>KampfBaum:</a> Indem Sie mehr Beispiele einbauen.</h4>
+                <h4><a>Blockfisch7:</a> Indem Sie sich mehr Zeit für einzelne Schüler nehmen die nicht viel können.</h4>
             </div>
             
         
