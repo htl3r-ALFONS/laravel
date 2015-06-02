@@ -28,27 +28,13 @@ Neues Feedback
         <br>
         
 <div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Prof. Jonah Hill</h4>
-    <p class="list-group-item-text">Fächer: BSPK, WIR</p>
-  </a>
-    <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Fachlehrer Chris Tucker</h4>
-    <p class="list-group-item-text">Fächer: WebT, DIM</p>
-  </a>
-    <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Prof. Jakob Bal</h4>
-    <p class="list-group-item-text">Fächer: PQM, E</p>
-  </a>
-    <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Prof. Mitra Bayandor</h4>
-    <p class="list-group-item-text">Fächer: MEDT, PQM</p>
-  </a>
-    <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Fachlehrer Jesus Christus</h4>
-    <p class="list-group-item-text">Fach: Werkstätte</p>
-  </a>
-    
+    @foreach ($teachers as $teacher)
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ $teacher->name }}</h4>
+            <p class="list-group-item-text">{{ $teacher->description }}</p>
+            <p class="list-group-item-text">Email-Adresse: {{ $teacher->email }}</p>
+        </a>
+    @endforeach   
 </div>
     </div>
     </div>
