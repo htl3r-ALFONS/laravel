@@ -25,12 +25,15 @@ Route::get('about', 'MyController@about');
 
 Route::get('index', 'MyController@index');
 Route::get('login', 'MyController@login');
-Route::get('test3', 'MyController@test3');
-Route::get('students', 'MyController@students');
-Route::get('teachers', 'MyController@teachers');
-Route::get('fragen','MyController@fragen');
-Route::get('feedback','MyController@feedback');
-Route::get('profilteacher','MyController@profilteacher');
+Route::get('students', 'StudentController@students');
+Route::get('teachers', 'TeacherController@teachers');
+Route::get('teachers/profile','TeacherController@profile');
+Route::get('students/settings', 'StudentController@settings');
+Route::get('teachers/settings', 'TeacherController@settings');
+Route::get('students/feedback', 'StudentController@feedback');
+Route::get('teachers/frage', 'TeacherController@frage');
+Route::get('impressum', 'MyController@impressum');
+
 //Routen für das Absenden eines Feedbacks
 
 Route::get('feedback/create', 'FeedbackController@create');
@@ -46,5 +49,6 @@ Route::post('question', 'QuestionController@store');
 
 Route::controllers([
     'login' => 'Auth\LoginController',
-    'register' => 'Auth\RegisterController'
+    'register' => 'Auth\RegisterController',
+    'password' => 'Auth\PasswordController'
 ]);

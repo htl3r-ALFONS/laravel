@@ -14,7 +14,7 @@ class TeacherPasswordBroker extends PasswordBroker {
             $tokens,
             $users,
             $mailer,
-            env('auth.password.email')
+            config('auth.password.email')
         );
     }
 }

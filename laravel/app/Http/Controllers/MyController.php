@@ -1,21 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use App\Teacher;
+use App\Comment;
+use App\Feedback;
+use App\Question;
+
 class MyController extends Controller {	
-
-	//Lukas first controller, such excitement.
-
-	public function about()
-	{
-
-		$name ="Lukas Mörtl";
-		return view('myPage.about')->with('name', $name);
-	}
-
-	public function contact()
-	{
-		$mail="lukas.moertl@gmx.at";
-		return view('myPage.contact')->with('mail', $mail);
-	}
     
     public function index() {
         return view('myPage.index');
@@ -23,31 +13,7 @@ class MyController extends Controller {
     public function login() {
         return view('myPage.login');
     }
-    public function test3() {
-        return view('myPage.homemasterview');
+    public function impressum() {
+        return view('myPage.impressum');
     }
-    public function students() {
-        return view('myPage.studenthome');
-    }
-    public function teachers() {
-        return view('myPage.teacherhome');
-    }
-    
-    public function fragen(){
-        return view('myPage.fragen');
-        
-    }
-    
-    public function feedback(){
-        return view('myPage.feedbackteacher');
-        
-    }
-    
-    public function profilteacher(){
-        return view('myPage.profilteacher');
-    }
-    
-    
-    
-
 }

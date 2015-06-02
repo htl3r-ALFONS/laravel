@@ -2,15 +2,15 @@
 
 
 @section('title')
-Student login
+Teacher login
 @stop
 
 @section('content')
 <form method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <label>
-        Fishname:
-        <input type="text" name="fishname">
+        E-Mail:
+        <input type="email" name="email">
     </label>
     <label>
         Password:

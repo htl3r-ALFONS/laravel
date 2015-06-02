@@ -5,9 +5,16 @@ use Response;
 
 class TeacherRegisterRequest extends FormRequest {
     public function rules() {
-        return [
-            'teachers' => 'required'
+        $rules = [
+            'names' => 'required|array',
+            'emails' => 'required|array'
         ];
+        
+        $names_length = count($this->request->get('names'));
+        
+        $rules['emails'] .= "|size:{$names_length}";
+        
+        return $rules;
     }
 
     public function authorize() {

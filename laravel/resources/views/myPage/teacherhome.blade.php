@@ -6,13 +6,13 @@ Home
 Neue Frage
 @stop
 @section('active')
-<li class="active"><a href="#">Home</a>
+<li class="active"><a href="/teachers">Home</a>
                 </li>
-                <li><a href="fragen">Meine Fragen</a>
+                <li><a href="frage">Meine Fragen</a>
                 </li>
                 <li><a href="feedback">Feedback</a>
                 </li>
-                <li><a href="profilteacher">Profil</a>
+                <li><a href="profil">Profil</a>
                 </li>
 @stop
 <div class="row">
