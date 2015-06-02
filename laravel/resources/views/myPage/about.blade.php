@@ -10,5 +10,5 @@ About
 @stop
 
 @section('content')
-i am just learning how to use laravel and it feels pretty good.
+To do: Aboutpage schreiben.
 @stop

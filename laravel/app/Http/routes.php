@@ -34,6 +34,9 @@ Route::get('teachers/frage', 'TeacherController@frage');
 Route::get('impressum', 'MyController@impressum');
 
 
+Route::get('teachers/myFeedback', 'MyController@teachersF');
+
+
 
 //Routen für das Absenden eines Feedbacks
 
