@@ -30,6 +30,9 @@ Route::get('students', 'MyController@students');
 Route::get('teachers', 'MyController@teachers');
 
 
+Route::get('teachers/myFeedback', 'MyController@teachersF');
+
+
 
 //Routen für das Absenden eines Feedbacks
 
