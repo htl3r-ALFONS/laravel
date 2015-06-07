@@ -6,13 +6,13 @@ Home
 Neue Frage
 @stop
 @section('active')
-<li class="active"><a href="/teachers">Home</a>
+<li class="active"><a href="{{ action('TeacherController@getIndex')}}">Home</a>
                 </li>
-                <li><a href="frage">Meine Fragen</a>
+                <li><a href="{{ action('TeacherController@getFrage')}}">Meine Fragen</a>
                 </li>
-                <li><a href="feedback">Feedback</a>
+                <li><a href="{{ action('TeacherController@getFeedback')}}">Feedback</a>
                 </li>
-                <li><a href="profil">Profil</a>
+                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
                 </li>
 @stop
 <div class="row">

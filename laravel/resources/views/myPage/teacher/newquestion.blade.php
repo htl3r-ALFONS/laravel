@@ -6,11 +6,11 @@ Neue Frage
 Neue Frage
 @stop
 @section('active')
-                <li><a href=".">Home</a>
+                <li><a href="{{ action('TeacherController@getIndex')}}">Home</a>
                 </li>
-                <li><a href="feedback">Mein Feedback</a>
+                <li><a href="{{ action('TeacherController@getFeedback')}}">Mein Feedback</a>
                 </li>
-                <li><a href="settings">Einstellungen</a>
+                <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
 <div class="row">

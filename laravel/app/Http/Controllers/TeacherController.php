@@ -6,19 +6,19 @@ use App\Feedback;
 use App\Question;
 
 class TeacherController extends Controller {
-    public function teachers() {
-        return view('myPage.teacherhome')->with('teachers', Teacher::all());
+    public function getIndex() {
+        return view('myPage.teacher.home')->with('teachers', Teacher::all());
     }
-    public function settings() {
-        return view('myPage.teachersettings');
+    public function getSettings() {
+        return view('myPage.teacher.settings');
     }
-    public function frage() {
-        return view('myPage.newquestion');
+    public function getFrage() {
+        return view('myPage.teacher.newquestion');
     }
-    public function feedback(){
-        return view('myPage.feedbackteacher');   
+    public function getFeedback(){
+        return view('myPage.teacher.feedback');   
     }
-    public function profilteacher(){
-        return view('myPage.profilteacher');
+    public function getProfile(){
+        return view('myPage.teacher.profile');
     }
 }

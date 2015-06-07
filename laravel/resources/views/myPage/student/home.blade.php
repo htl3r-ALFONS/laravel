@@ -8,9 +8,9 @@ Neues Feedback
 @section('active')
 <li class="active"><a href="#">Home</a>
                 </li>
-                <li><a href="students/feedback">Mein Feedback</a>
+                <li><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
                 </li>
-                <li><a href="students/settings">Einstellungen</a>
+                <li><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
                 </li>
 @stop
 <div class="row">

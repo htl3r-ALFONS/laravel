@@ -8,11 +8,11 @@ Neue Frage
 @section('active')
 <li><a href="teachers">Home</a>
                 </li>
-                <li><a href="fragen">Meine Fragen</a>
+                <li><a href="{{ action('TeacherController@getFrage')}}">Meine Fragen</a>
                 </li>
                 <li  class="active"><a href="#">Feedback</a>
                 </li>
-                <li><a href="profilteacher">Profil</a>
+                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
                 </li>
 @stop
 <div class="row">
