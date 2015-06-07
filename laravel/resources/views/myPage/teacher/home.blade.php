@@ -14,6 +14,8 @@ Neue Frage
                 </li>
                 <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
                 </li>
+                <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
+                </li>
 @stop
 <div class="row">
     <div class="hidden-xs col-md-3 col-lg-3">

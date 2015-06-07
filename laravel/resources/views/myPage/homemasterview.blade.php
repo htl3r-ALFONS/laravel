@@ -29,14 +29,10 @@
     </div>
 </div>
 @yield('content')
-    <div class="row">
-        <div class="col-md-3 col-lg-3">
+<nav class="navbar navbar-custom navbar-fixed-bottom">
+	<div class="navbar-header">
+      <a class="navbar-brand foot" href="/impressum"><u>Impressum</u></a>
     </div>
-    <div class="col-md-6 col-lg-6">
-        <a src="#">Impressum</a>
-    </div>
-    <div class="col-md-3 col-lg-3">
-        </div>
-    </div>
+</nav>
 </body>
 </html>
