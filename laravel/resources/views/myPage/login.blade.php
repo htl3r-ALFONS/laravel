@@ -3,7 +3,8 @@
 <div class="padding">
     <h1>Log in</h1>
     <p class="bold">Verwende deinen Fischnamen und dein Passwort</p>
-    <form action="{{ action('Auth/LoginController@postStudent', this) }}" method="post">   
+    <form action="{{ action('Auth\LoginController@postStudent') }}" method="post">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
         <input name="fishname" type="text" class="form-control" placeholder="Benutzername/Emailadresse" aria-describedby="basic-addon1">
