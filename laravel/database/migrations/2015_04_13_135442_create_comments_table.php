@@ -14,11 +14,11 @@ class CreateCommentsTable extends Migration {
 	{
 		Schema::create('comments', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 
 			$table->integer('fk_feedback')
 				->unsigned()
-				->references('pk_id')->on('feedback');
+				->references('id')->on('feedback');
 
 			$table->timestamp('created_at');
 
