@@ -14,7 +14,7 @@ class CreateClassroomsTable extends Migration {
 	{
 		Schema::create('classrooms', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 			$table->char('year', 1);
 			$table->char('letter', 1);
 			$table->char('branch', 1);

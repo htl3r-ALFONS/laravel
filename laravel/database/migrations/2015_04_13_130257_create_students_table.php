@@ -14,18 +14,18 @@ class CreateStudentsTable extends Migration {
 	{
 		Schema::create('students', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 
 			$table->integer('fk_user')
 				->unsigned()
-				->references('pk_id')->on('users');
+				->references('id')->on('users');
 
 			$table->string('fishname', 255)
 				->unique();
 
 			$table->integer('fk_classroom')
 				->unsigned()
-				->references('pk_id')->on('classrooms');
+				->references('id')->on('classrooms');
 		});
 	}
 

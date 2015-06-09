@@ -16,11 +16,11 @@ class CreateQuestionsAskedToTable extends Migration {
 		{
 			$table->integer('pk_fk_question')
 				->unsigned()
-				->references('pk_id')->on('questions');
+				->references('id')->on('questions');
 
 			$table->integer('pk_fk_classroom')
 				->unsigned()
-				->references('pk_id')->on('classrooms');
+				->references('id')->on('classrooms');
 
 			$table->primary(['pk_fk_question', 'pk_fk_classroom']);
 		});

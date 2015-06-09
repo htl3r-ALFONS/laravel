@@ -14,19 +14,19 @@ class CreateFeedbackTable extends Migration {
 	{
 		Schema::create('feedback', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 
 			$table->integer('fk_teacher')
 				->unsigned()
-				->references('pk_id')->on('teachers');
+				->references('id')->on('teachers');
 
 			$table->integer('fk_student')
 				->unsigned()
-				->references('pk_id')->on('students');
+				->references('id')->on('students');
 
 			$table->integer('fk_question')
 				->unsigned()
-				->references('pk_id')->on('questions')
+				->references('id')->on('questions')
                 ->nullable()
                 ->default(null);
 

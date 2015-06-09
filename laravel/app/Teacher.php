@@ -21,5 +21,4 @@ class Teacher extends Model implements CanResetPasswordContract {
     public function feedback() {
         return $this->hasMany('App\Feedback', 'fk_teacher');
     }
-    
 }

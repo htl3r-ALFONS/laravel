@@ -14,11 +14,11 @@ class CreateQuestionsTable extends Migration {
 	{
 		Schema::create('questions', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 
 			$table->integer('fk_teacher')
 				->unsigned()
-				->references('pk_id')->on('teachers');
+				->references('id')->on('teachers');
 
 			$table->string('content');
 		});
