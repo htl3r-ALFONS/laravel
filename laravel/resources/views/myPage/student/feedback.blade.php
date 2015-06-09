@@ -19,9 +19,10 @@ Neues Feedback
     <div class="hidden-xs col-md-3 col-lg-3">
     </div>
     <div class="col-md-6 col-lg-6">
+        <h2>Feedback:</h2>
         @foreach ($feedbacks as $feedback)
                 <div class="feedbackbox">
-                    <h2>Feedback:</h2>
+                    <h4>Feedback an {{ $feedback->teacher->name }}</h4>
                     <div class="feedback">
                     <h5><b>Du:</b></h5>
                     <p>{{ $feedback->content }}</p>    
@@ -38,7 +39,7 @@ Neues Feedback
                                 @endforeach
                             @else
                                 <div class="comment">
-                                    <p><a href="#"><b>Du:</b></a> {{ $comment->content }}</p>
+                                    <p><b>Du:</b> {{ $comment->content }}</p>
                                 </div>
                             @endif
                         @endif
