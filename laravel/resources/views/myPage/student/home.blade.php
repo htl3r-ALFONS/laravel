@@ -28,6 +28,8 @@ Neues Feedback
             <p>{{ $feedback->content }}</p>    
             </div>
             @foreach($comments as $comment)
+            <form href="{{ action('StudentController@postComment') }}">
+                <input type="hidden" value=$feedback->pk_id name="feedback">
                 @if($comment->fk_feedback === $feedback->pk_id)
                     @if($comment->from === "teacher")
                         @foreach ($teachers as $teacher)
@@ -47,9 +49,10 @@ Neues Feedback
             <div class="input-group feedbackbox">
                 <input type="text" class="form-control" placeholder="kommentieren...">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Senden</button>
+                    <input type="submit" class="btn btn-default">
                 </span>
-            </div>
+                </div>
+            </form>
         </div>
         @endforeach
         @foreach ($questions as $question)
