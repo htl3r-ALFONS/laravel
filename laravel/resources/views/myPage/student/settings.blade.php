@@ -18,6 +18,7 @@ Neues Feedback
     </div>
     <div class="col-md-6 col-lg-6">
         <h1>Einstellungen</h1>
+        <form action="{{ action('TeacherController@postPassword') }}" method="post">            
         <div class="chgPw">
             <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
@@ -32,7 +33,8 @@ Neues Feedback
             <input type="password" placeholder="Neues Passwort wiederholen" class="form-control">
         </div>
         <button type="button" class="btn btn-success btn-block">Passwort ändern</button>
-        </div>            
+        </div>
+        </form>        
     </div>
 
 </div>

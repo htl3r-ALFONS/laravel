@@ -34,6 +34,9 @@ Neue Frage
             <button type="button" class=" btn btn-xs">
               <span class="glyphicon glyphicon-pencil"></span>
             </button>
+               
+                <textarea rows="5" cols="5"></textarea>
+                
                 
             </div>
         </div>

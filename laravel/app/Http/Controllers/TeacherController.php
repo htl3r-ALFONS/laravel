@@ -21,4 +21,8 @@ class TeacherController extends Controller {
     public function getProfile(){
         return view('myPage.teacher.profile');
     }
+    
+    public function postPassword() {
+        
+    }
 }
