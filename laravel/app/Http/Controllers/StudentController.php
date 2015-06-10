@@ -36,4 +36,11 @@ class StudentController extends Controller {
         
         return redirect()->action('StudentController@getIndex');
     }
+    
+    public function postComment() {
+        $comment = new Comment;
+        $feedback->content = Request::get('content');
+        $feedback->from = "student";
+        $feedback->fk_feedback = Request::get('feedback');
+    }
 }

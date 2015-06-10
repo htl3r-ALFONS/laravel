@@ -21,6 +21,8 @@ class CreateCommentsTable extends Migration {
 				->references('id')->on('feedback');
 
 			$table->timestamp('created_at');
+            
+            $table->string('content');
 
 			$table->enum('from', ['student', 'teacher']);
 		});
