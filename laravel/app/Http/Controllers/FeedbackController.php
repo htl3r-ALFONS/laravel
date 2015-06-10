@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
 use App\Teacher;
 use App\Feedback;
 use Request;
@@ -13,7 +14,7 @@ class FeedbackController extends Controller {
 
     public function create() {
         return view('feedback.create')
-            ->with('teachers', Teacher::all());
+            ->with('teachers', Teacher::lists('name','id'));
     }
     
     public function store() {

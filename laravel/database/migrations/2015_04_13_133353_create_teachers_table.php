@@ -14,11 +14,11 @@ class CreateTeachersTable extends Migration {
 	{
 		Schema::create('teachers', function(Blueprint $table)
 		{
-			$table->increments('pk_id');
+			$table->increments('id');
 
 			$table->integer('fk_user')
 				->unsigned()
-				->references('pk_id')->on('users');
+				->references('id')->on('users');
             
             $table->string('name')
                 ->unique();

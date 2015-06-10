@@ -144,7 +144,9 @@ return [
 		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider'
+		'App\Providers\RouteServiceProvider',
+        
+        'App\Providers\HelperServiceProvider'
 
 	],
 
@@ -194,7 +196,9 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'      => 'Illuminate\Html\FormFacade',
-        'Html'      => 'Illuminate\Html\FormHtml'
+        'Html'      => 'Illuminate\Html\FormHtml',
+        
+        'FishName'  => 'App\Helpers\FishName'
 	],
 
 ];

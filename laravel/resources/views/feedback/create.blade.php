@@ -1,12 +1,25 @@
 @extends('myPage.homemasterview')
-
-@section('content')
-
+@section('title')
+Lehrerauswahl
+@stop
+@section('fragefb')
+Neues Feedback
+@stop
+@section('active')
+                <li><a href="{{ action('StudentController@getIndex') }}">Home</a>
+                </li>
+                <li><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
+                </li>
+                <li><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
+                </li>
+                <li><a href="{{ action('StudentController@getNew') }}">Feedback schreiben</a>
+                </li>
+@stop
     <h1>Write a new Feedback</h1>
 
     <hr/>
 
-    {!! Form::open(['url' => 'feedback']) !!}
+    {!! Form::open(['url' => 'student/new']) !!}
         <div class="form-group">
             {!! Form::label('teacher','Lehrer:') !!}
             {!! Form::select('teacher', $teachers) !!}
@@ -22,4 +35,3 @@
             {!! Form::submit('Send Feedback', ['class' => 'form-control']); !!}
         </div>
     {!! Form::close() !!}
-@stop

@@ -30,7 +30,7 @@ Neue Frage
             </a>
             </div>
             <div class="teacher-aendern-name">
-                <span class="teacher-textgroesse-bearbeiten"><b>Prof. Jonah Hill</b></span>
+                <span class="teacher-textgroesse-bearbeiten"><b>{{ Auth::user()->teacher->name }}</b></span>
             <button type="button" class=" btn btn-xs">
               <span class="glyphicon glyphicon-pencil"></span>
             </button>
