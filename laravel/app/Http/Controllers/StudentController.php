@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
 use App\Teacher;
 use App\Comment;
 use App\Feedback;
@@ -50,5 +51,9 @@ class StudentController extends Controller {
         $comment->content = Request::get('content');
         $comment->from = "student";
         $comment->fk_feedback = Request::get('feedback');
+        $comment->created_at = new DateTime;
+        $comment->save();
+        
+        return redirect()->action('StudentController@getIndex');
     }
 }

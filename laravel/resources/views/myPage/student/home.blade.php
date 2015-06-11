@@ -28,12 +28,10 @@ Neues Feedback
             <p>{{ $feedback->content }}</p>    
             </div>
             @foreach($comments as $comment)
-            <form name="feedback" action="{{ action('StudentController@postComment') }}">
-                <input type="hidden" name="feedback" value="{{ $feedback->pk_id }}">
-                @if($comment->fk_feedback === $feedback->pk_id)
+                @if($comment->fk_feedback === $feedback->id)
                     @if($comment->from === "teacher")
                         @foreach ($teachers as $teacher)
-                            @if ($teacher->pk_id === $feedback->fk_teacher)
+                            @if ($teacher->id === $feedback->fk_teacher)
                                 <div class="comment teachercomment">
                                     <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
                                 </div>
@@ -46,12 +44,15 @@ Neues Feedback
                     @endif
                 @endif
             @endforeach
-            <div class="input-group feedbackbox">
-                <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
-                <span class="input-group-btn">
-                    <input type="submit" value="Senden" class="btn btn-default">
-                </span>
-            </div>
+            <form name="feedback" action="{{ action('StudentController@postComment') }}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="feedback" value="{{ $feedback->id }}">
+                <div class="input-group feedbackbox">
+                    <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
+                    <span class="input-group-btn">
+                        <input type="submit" value="Senden" class="btn btn-default">
+                    </span>
+                </div>
             </form>
         </div>
         @endforeach
@@ -60,10 +61,10 @@ Neues Feedback
             @foreach ($teachers as $teacher)
             <h3>{{ $question->content }}<small> - {{ $teacher->name }}</small></h3>
             @foreach($comments as $comment)
-                @if($comment->fk_feedback === $feedback->pk_id)
+                @if($comment->fk_feedback === $feedback->id)
                     @if($comment->from === "teacher")
                         @foreach ($teachers as $teacher)
-                            @if ($teacher->pk_id === $feedback->fk_teacher)
+                            @if ($teacher->id === $feedback->fk_teacher)
                                 <div class="comment teachercomment">
                                     <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
                                 </div>
