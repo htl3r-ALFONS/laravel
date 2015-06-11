@@ -1,13 +1,19 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
 use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
-use Request;
+use Illuminate\Http\Request;
 use Auth;
 
 class StudentController extends Controller {	
+    
+    public function __construct() {
+        $this->middleware('student');
+    }
+    
     public function getIndex() {
         return view('myPage.student.home', ['teachers' => Teacher::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
     }
@@ -23,24 +29,61 @@ class StudentController extends Controller {
             ->with('teachers', Teacher::lists('name','id'));
     }
     
-    public function postNew() {
-        $teacher = Teacher::find(Request::get('teacher'));
+    public function postNew(Request $request) {
+        $this->validate($request, [
+            'feedback' => 'required|string'
+        ]);
+        
+        $teacher = Teacher::find($request->input('teacher'));
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        $feedback->show_fishname = Request::get('fishname');
-        $feedback->content = Request::get('feedback');
+        if($request->input('fishname') !== Null) {
+            $feedback->show_fishname = Request::get('fishname');
+        } else {
+            $feedback->show_fishname = False;
+        }
+        $feedback->content = $request->input('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        $feedback->show_classroom = Request::get('classroom');
+        if($request->input('classroom') !== Null) {
+            $feedback->show_classroom = $request->input('classroom');
+        } else {
+            $feedback->show_classroom = False;
+        }
         $feedback->save();
         
         return redirect()->action('StudentController@getIndex');
     }
     
-    public function postComment() {
+    
+    public function postPassword(Request $request) {
+        $this->validate($request, [
+            'password_current' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+        
+        if (Auth::validate(['id' => Auth::user()->id, 'password' => $request->input('password_current')])) {
+            $user = Auth::user();
+            $user->password = \Hash::make($request->input('password'));
+            $user->save();
+            return redirect()->action('StudentController@getIndex');
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function postComment(Request $request) {
+        $this->validate($request, [
+            'feedback' => 'required|exists:feedback,id',
+            'content' => 'required|string'
+        ]);
         $comment = new Comment;
-        $feedback->content = Request::get('content');
-        $feedback->from = "student";
-        $feedback->fk_feedback = Request::get('feedback');
+        $comment->content = $request->input('content');
+        $comment->from = "student";
+        $comment->fk_feedback = $request->input('feedback');
+        $comment->created_at = new DateTime;
+        $comment->save();
+        
+        return redirect()->action('StudentController@getIndex');
     }
 }

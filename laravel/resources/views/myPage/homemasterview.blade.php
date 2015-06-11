@@ -22,8 +22,11 @@
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
                 @yield('active')
-                <li><button type="button" class="btn new btn-info"><span class="glyphicon glyphicon-pencil"></span> @yield('fragefb')</button>
-                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::check())
+                <li><a href="{{ action('Auth\LogoutController@anyIndex') }}">Logout</a></li>
+                @endif
             </ul>
         </div>
     </div>
