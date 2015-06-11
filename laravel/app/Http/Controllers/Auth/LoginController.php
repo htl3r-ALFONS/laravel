@@ -19,7 +19,7 @@ class LoginController extends Controller {
     public function postStudent(StudentLoginRequest $request) {
         $student = Student::where('fishname', $request->input('fishname'))->firstOrFail();
         Auth::attempt(['id' => $student->user->id, 'password' => $request->input('password')]);
-        return redirect('/login/student');
+        return redirect('/student');
     }
     
     public function getTeacher() {
@@ -33,7 +33,7 @@ class LoginController extends Controller {
         ]);
         $teacher = Teacher::where('email', $request->input('email'))->firstOrFail();
         Auth::attempt(['id' => $teacher->user->id, 'password' => $request->input('password')]);
-        return redirect('/login/teacher');
+        return redirect('/teacher');
     }
 
 }

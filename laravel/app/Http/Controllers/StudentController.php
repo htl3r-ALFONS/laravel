@@ -28,10 +28,18 @@ class StudentController extends Controller {
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        $feedback->show_fishname = Request::get('fishname');
+        if(Request::get('fishname') !== Null) {
+            $feedback->show_fishname = Request::get('fishname');
+        } else {
+            $feedback->show_fishname = False;
+        }
         $feedback->content = Request::get('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        $feedback->show_classroom = Request::get('classroom');
+        if(Request::get('classroom') !== Null) {
+            $feedback->show_classroom = Request::get('classroom');
+        } else {
+            $feedback->show_classroom = False;
+        }
         $feedback->save();
         
         return redirect()->action('StudentController@getIndex');
