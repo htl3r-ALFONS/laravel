@@ -5,7 +5,7 @@ use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
-use Request;
+use Illuminate\Http\Request;
 use Auth;
 
 class StudentController extends Controller {	
@@ -46,6 +46,23 @@ class StudentController extends Controller {
         return redirect()->action('StudentController@getIndex');
     }
     
+    
+    public function postPassword(Request $request) {
+        $this->validate($request, [
+            'password_current' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+        
+        if (Auth::validate(['id' => Auth::user()->id, 'password' => $request->input('password_current')])) {
+            $user = Auth::user();
+            $user->password = \Hash::make($request->input('password'));
+            $user->save();
+            return redirect()->action('StudentController@getIndex');
+        } else {
+            return redirect()->back();
+        }
+    }
+
     public function postComment() {
         $comment = new Comment;
         $comment->content = Request::get('content');

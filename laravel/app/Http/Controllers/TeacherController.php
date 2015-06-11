@@ -4,12 +4,10 @@ use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
+use Request;
 use App\Student;
 
 class TeacherController extends Controller {
-    public function getIndex() {
-        return view('myPage.teacher.home')->with('teachers', Teacher::all());
-    }
     public function getSettings() {
         return view('myPage.teacher.settings');
     }
@@ -22,10 +20,11 @@ class TeacherController extends Controller {
     public function getProfile(){
         return view('myPage.teacher.profile');
     }
+
     
-    /*public function getIndex() {
+    public function getIndex() {
         return view('myPage.teacher.home', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
-    }*/
+    }
     
 
 }
