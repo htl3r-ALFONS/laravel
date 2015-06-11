@@ -13,7 +13,11 @@ class MyController extends Controller {
     public function login() {
         return view('myPage.login');
     }
+    public function richtlinien() {
+        return view('myPage.richtlinien');
+    }
     public function impressum() {
         return view('myPage.impressum');
     }
+    
 }

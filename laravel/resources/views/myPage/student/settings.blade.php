@@ -10,7 +10,7 @@ Neues Feedback
                 </li>
                 <li><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
                 </li>
-                <li><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
+                <li class="active"><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
                 </li>
                 <li><a href="{{ action('StudentController@getNew') }}">Feedback schreiben</a>
                 </li>

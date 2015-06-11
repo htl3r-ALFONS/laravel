@@ -28,15 +28,24 @@ class StudentController extends Controller {
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        $feedback->show_fishname = Request::get('fishname');
+        if(Request::get('fishname') !== Null) {
+            $feedback->show_fishname = Request::get('fishname');
+        } else {
+            $feedback->show_fishname = False;
+        }
         $feedback->content = Request::get('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        $feedback->show_classroom = Request::get('classroom');
+        if(Request::get('classroom') !== Null) {
+            $feedback->show_classroom = Request::get('classroom');
+        } else {
+            $feedback->show_classroom = False;
+        }
         $feedback->save();
         
         return redirect()->action('StudentController@getIndex');
     }
     
+<<<<<<< HEAD
     
     public function postPassword(Request $request) {
         $this->validate($request, [
@@ -52,5 +61,12 @@ class StudentController extends Controller {
         } else {
             return redirect()->back();
         }
+=======
+    public function postComment() {
+        $comment = new Comment;
+        $comment->content = Request::get('content');
+        $comment->from = "student";
+        $comment->fk_feedback = Request::get('feedback');
+>>>>>>> 62e3e50ba584c2249b62a0d163562a9adc1718c9
     }
 }

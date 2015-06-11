@@ -108,10 +108,20 @@ p.bold {
     width:20vw;
 }
 .padding {
+    position: relative;
+    width: 300px;
     margin:30vmin;
     margin-bottom:0px;
     margin-right:0px;
 }
+
+login_form{
+    position: relative;
+    left: 10px;
+    width: 300px;
+    float: left;
+}
+
 .btn.new {
     margin:7px;
 }
