@@ -4,6 +4,7 @@ use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
+use Request;
 
 class TeacherController extends Controller {
     public function getIndex() {
@@ -22,7 +23,4 @@ class TeacherController extends Controller {
         return view('myPage.teacher.profile');
     }
     
-    public function postPassword() {
-        
-    }
 }
