@@ -6,6 +6,11 @@ use App\Feedback;
 use App\Question;
 
 class TeacherController extends Controller {
+    
+    public function __construct() {
+        $this->middleware('teacher');
+    }
+    
     public function getIndex() {
         return view('myPage.teacher.home')->with('teachers', Teacher::all());
     }
