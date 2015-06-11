@@ -47,7 +47,7 @@ Neue Frage
                     </div>
                     <!-- TODO: Chronologie -->
                     @foreach($comments as $comment)
-                        @if($comment->fk_feedback === $feedback->pk_id)
+                        @if($comment->fk_feedback === $feedback->id)
                             @if($comment->from === "teacher")
                                 <div class="comment teachercomment">
                                     <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
@@ -65,14 +65,15 @@ Neue Frage
                             @endif
                         @endif
                     @endforeach
-                    <!-- ToDo: form testen und verbessern -->
-                    {!! Form::open(['url' => 'feedback/new']) !!}
+                    <!-- ToDo: form testen -->
                         <div class="form-group">
-                            {!! Form::label('comment','Kommentar:') !!}
-                            {!! Form::textarea('comment', null, ['class' => 'form-control']) !!}
-                            {!! Form::submit('Kommentar abschicken', ['class' => 'form-control']); !!}
+                            <form href="{{ action('TeacherController@postComment') }}">
+                                <input type="text" name="content" class="form-control" placeholder="kommentieren...">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-default">
+                                </span>
+                            </form>
                         </div>
-                    {!! Form::close() !!}
                 </div>
             @endforeach
       </div>
