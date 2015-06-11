@@ -2,6 +2,7 @@
 
 use Auth;
 use App\Student;
+use App\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentLoginRequest;
 use Illuminate\Http\Request;
