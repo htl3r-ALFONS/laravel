@@ -47,8 +47,8 @@ class StudentController extends Controller {
     
     public function postComment() {
         $comment = new Comment;
-        $feedback->content = Request::get('content');
-        $feedback->from = "student";
-        $feedback->fk_feedback = Request::get('feedback');
+        $comment->content = Request::get('content');
+        $comment->from = "student";
+        $comment->fk_feedback = Request::get('feedback');
     }
 }

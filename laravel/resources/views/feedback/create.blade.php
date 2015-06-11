@@ -6,13 +6,13 @@ Lehrerauswahl
 Neues Feedback
 @stop
 @section('active')
-                <li><a href="{{ action('StudentController@getIndex') }}">Home</a>
+                <li class="active"><li><a href="{{ action('StudentController@getIndex') }}">Home</a>
                 </li>
                 <li><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
                 </li>
                 <li><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
                 </li>
-                <li><a href="{{ action('StudentController@getNew') }}">Feedback schreiben</a>
+                <li class="active"><a href="{{ action('StudentController@getNew') }}">Feedback schreiben</a>
                 </li>
 @stop
     <h1>Write a new Feedback</h1>
