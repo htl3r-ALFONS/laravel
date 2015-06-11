@@ -36,9 +36,11 @@ class CreateFeedbackTable extends Migration {
                 ->nullable()
                 ->default(null);
 
-			$table->boolean('show_fishname');
+			$table->boolean('show_fishname')
+                ->default(false);
 
-			$table->boolean('show_classroom');
+			$table->boolean('show_classroom')
+                ->default(false);
 		});
 	}
 

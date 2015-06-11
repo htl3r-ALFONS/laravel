@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
 use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
-use Request;
+use Illuminate\Http\Request;
 use Auth;
 
 class StudentController extends Controller {	
@@ -33,11 +34,47 @@ class StudentController extends Controller {
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        $feedback->show_fishname = Request::get('fishname');
+        if(Request::get('fishname') !== Null) {
+            $feedback->show_fishname = Request::get('fishname');
+        } else {
+            $feedback->show_fishname = False;
+        }
         $feedback->content = Request::get('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        $feedback->show_classroom = Request::get('classroom');
+        if(Request::get('classroom') !== Null) {
+            $feedback->show_classroom = Request::get('classroom');
+        } else {
+            $feedback->show_classroom = False;
+        }
         $feedback->save();
+        
+        return redirect()->action('StudentController@getIndex');
+    }
+    
+    
+    public function postPassword(Request $request) {
+        $this->validate($request, [
+            'password_current' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+        
+        if (Auth::validate(['id' => Auth::user()->id, 'password' => $request->input('password_current')])) {
+            $user = Auth::user();
+            $user->password = \Hash::make($request->input('password'));
+            $user->save();
+            return redirect()->action('StudentController@getIndex');
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function postComment() {
+        $comment = new Comment;
+        $comment->content = Request::get('content');
+        $comment->from = "student";
+        $comment->fk_feedback = Request::get('feedback');
+        $comment->created_at = new DateTime;
+        $comment->save();
         
         return redirect()->action('StudentController@getIndex');
     }
