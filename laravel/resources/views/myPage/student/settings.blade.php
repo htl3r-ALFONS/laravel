@@ -15,6 +15,16 @@ Neues Feedback
                 <li><a href="{{ action('StudentController@getNew') }}">Feedback schreiben</a>
                 </li>
 @stop
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="row">
     <div class="hidden-xs col-md-3 col-lg-3">
     </div>

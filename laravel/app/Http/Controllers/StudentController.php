@@ -24,20 +24,24 @@ class StudentController extends Controller {
             ->with('teachers', Teacher::lists('name','id'));
     }
     
-    public function postNew() {
-        $teacher = Teacher::find(Request::get('teacher'));
+    public function postNew(Request $request) {
+        $this->validate($request, [
+            'feedback' => 'required|string'
+        ]);
+        
+        $teacher = Teacher::find($request->input('teacher'));
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        if(Request::get('fishname') !== Null) {
+        if($request->input('fishname') !== Null) {
             $feedback->show_fishname = Request::get('fishname');
         } else {
             $feedback->show_fishname = False;
         }
-        $feedback->content = Request::get('feedback');
+        $feedback->content = $request->input('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        if(Request::get('classroom') !== Null) {
-            $feedback->show_classroom = Request::get('classroom');
+        if($request->input('classroom') !== Null) {
+            $feedback->show_classroom = $request->input('classroom');
         } else {
             $feedback->show_classroom = False;
         }
@@ -63,11 +67,15 @@ class StudentController extends Controller {
         }
     }
 
-    public function postComment() {
+    public function postComment(Request $request) {
+        $this->validate($request, [
+            'feedback' => 'required|exists:feedback,id',
+            'content' => 'required|string'
+        ]);
         $comment = new Comment;
-        $comment->content = Request::get('content');
+        $comment->content = $request->input('content');
         $comment->from = "student";
-        $comment->fk_feedback = Request::get('feedback');
+        $comment->fk_feedback = $request->input('feedback');
         $comment->created_at = new DateTime;
         $comment->save();
         
