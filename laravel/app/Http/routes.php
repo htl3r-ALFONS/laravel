@@ -42,6 +42,7 @@ Route::post('question', 'QuestionController@store');
 
 Route::controllers([
     'login' => 'Auth\LoginController',
+    'logout' => 'Auth\LogoutController',
     'register' => 'Auth\RegisterController',
     'password' => 'Auth\PasswordController',
     'teacher' => 'TeacherController',
