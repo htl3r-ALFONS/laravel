@@ -8,6 +8,14 @@ use Request;
 use App\Student;
 
 class TeacherController extends Controller {
+    
+    public function __construct() {
+        $this->middleware('teacher');
+    }
+    
+    public function getIndex() {
+        return view('myPage.teacher.home', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
+    }
     public function getSettings() {
         return view('myPage.teacher.settings');
     }
@@ -20,11 +28,4 @@ class TeacherController extends Controller {
     public function getProfile(){
         return view('myPage.teacher.profile');
     }
-
-    
-    public function getIndex() {
-        return view('myPage.teacher.home', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
-    }
-    
-
 }

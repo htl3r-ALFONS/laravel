@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 use Auth;
 
 class StudentController extends Controller {	
+    
+    public function __construct() {
+        $this->middleware('student');
+    }
+    
     public function getIndex() {
         return view('myPage.student.home', ['teachers' => Teacher::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
     }

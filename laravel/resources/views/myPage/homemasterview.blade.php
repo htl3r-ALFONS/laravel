@@ -23,6 +23,11 @@
             <ul class="nav navbar-nav navbar-left">
                 @yield('active')
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::check())
+                <li><a href="{{ action('Auth\LogoutController@anyIndex') }}">Logout</a></li>
+                @endif
+            </ul>
         </div>
     </div>
 </div>
