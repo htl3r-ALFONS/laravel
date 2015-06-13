@@ -19,5 +19,4 @@ class MyController extends Controller {
     public function impressum() {
         return view('myPage.impressum');
     }
-    
 }

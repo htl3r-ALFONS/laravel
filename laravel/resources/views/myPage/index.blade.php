@@ -5,7 +5,7 @@
         </div>
         <div class="row">
             <div class="alfons col-md-5 col-sm-5 hidden-xs">
-                <!--<img src="{{asset('/alfons.png')}}">--->
+                <img src="{{ asset('ALFONS_box.svg') }}">
             </div>
             <div class="inhalt col-md-7 col-lg-7">
                 <h1>Anonymes Feedback</h1>
