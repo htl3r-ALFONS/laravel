@@ -9,5 +9,9 @@ class Comment extends Model {
     public function feedback() {
         return $this->belongsTo('App\Feedback', 'fk_feedback');
     }
+    
+     public function question() {
+        return $this->belongsTo('App\Question', 'fk_question');
+    }
 
 }
