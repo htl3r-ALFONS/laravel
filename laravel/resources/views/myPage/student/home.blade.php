@@ -32,7 +32,7 @@ Neues Feedback
         <h1>Willkommen! <small>Neue Kommentare & Fragen</small></h1>
         @foreach ($feedbacks as $feedback)
         <div class="feedbackbox">
-            <h2>Feedback:</h2>
+            <h4>Feedback an {{ $feedback->teacher->name }}</h4>
             <div class="feedback">
             <h5><b>Du:</b></h5>
             <p>{{ $feedback->content }}</p>    
@@ -56,7 +56,7 @@ Neues Feedback
             @endforeach
             <form name="feedback" action="{{ action('StudentController@postComment') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="question" value=10000>
+                <input type="hidden" name="question" value=9999999>
                 <input type="hidden" name="feedback" value="{{ $feedback->id }}">
                 <div class="input-group feedbackbox">
                     <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
@@ -69,8 +69,8 @@ Neues Feedback
         @endforeach
         @foreach ($questions as $question)
         <div class="frage">
-            @foreach ($teachers as $teacher)
-            <h3>{{ $question->content }}<small> - {{ $teacher->name }}</small></h3>
+            <h2>Fragen:</h2>
+            <h3>{{ $question->content }}<small> - {{ $question->fk_teacher }}</small></h3>
             @foreach($comments as $comment)
                 @if($comment->fk_question === $question->id)
                     @if($comment->from === "teacher")
@@ -92,7 +92,7 @@ Neues Feedback
             <form name="question" action="{{ action('StudentController@postComment') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="question" value="{{ $question->id }}">
-                <input type="hidden" name="feedback" value=10000>
+                <input type="hidden" name="feedback" value=9999999>
                 <div class="input-group feedbackbox">
                     <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
                     <span class="input-group-btn">
@@ -101,7 +101,6 @@ Neues Feedback
                 </div>
             </form>
         </div>
-        @endforeach
     </div>
     
 </div>
