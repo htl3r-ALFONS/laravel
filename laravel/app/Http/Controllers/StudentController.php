@@ -74,14 +74,18 @@ class StudentController extends Controller {
 
     public function postComment(Request $request) {
         $this->validate($request, [
-            'feedback' => 'required|exists:feedback,id',
+            'feedback' => 'required_without:question|exists:feedback,id',
+            'question' => 'required_without:feedback|exists:questions,id',
             'content' => 'required|string'
         ]);
         $comment = new Comment;
         $comment->content = $request->input('content');
         $comment->from = "student";
-        $comment->fk_feedback = $request->input('feedback');
-        $comment->fk_question = $request->input('question');
+        if ($request->has('feedback')) {
+            $comment->fk_feedback = $request->input('feedback');
+        } else {
+            $comment->fk_question = $request->input('question');
+        }
         $comment->created_at = new DateTime;
         $comment->save();
         

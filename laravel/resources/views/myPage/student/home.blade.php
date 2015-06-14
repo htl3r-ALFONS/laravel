@@ -56,7 +56,6 @@ Neues Feedback
             @endforeach
             <form name="feedback" action="{{ action('StudentController@postComment') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="question" value=9999999>
                 <input type="hidden" name="feedback" value="{{ $feedback->id }}">
                 <div class="input-group feedbackbox">
                     <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
@@ -88,11 +87,9 @@ Neues Feedback
                     @endif
                 @endif
             @endforeach
-            @endforeach
             <form name="question" action="{{ action('StudentController@postComment') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="question" value="{{ $question->id }}">
-                <input type="hidden" name="feedback" value=9999999>
                 <div class="input-group feedbackbox">
                     <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
                     <span class="input-group-btn">
@@ -101,6 +98,7 @@ Neues Feedback
                 </div>
             </form>
         </div>
+        @endforeach
     </div>
     
 </div>
