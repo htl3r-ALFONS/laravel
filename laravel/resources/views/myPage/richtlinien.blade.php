@@ -21,7 +21,7 @@
 Sei Respektvoll. Diese Plattform ist dazu da, den Unterricht zu verbessern, Beleidigungen und Drohungen werden nicht geduldet!
 ALFONS benüzt ein Halbanonymes System, das heißt, dass dein Name im Falle eines Verstoßes, ausgeforscht werden kann.
 Diese Maßnahme ist nötig, um gegen die Wenigen vorgehen zu können, die das System für alle zerstören würden.
-Wir geben deinen Namen nur weiter, wenn ein schwerer Verstoß vorliegt. Bei adäquater Nutzung von Alfons bleibt dein Name anonym.
+Wir geben deinen Namen nur weiter, wenn ein schwerer Verstoß vorliegt. Wenn du konstruktive Kritik gibst und diese feundlich, bzw. respektvoll formulierst, bleibt dein Name immer anonym.
 </p>
     
 Verstöße und Folgen:
