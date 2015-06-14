@@ -29,7 +29,7 @@
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-        <input name="fishname" type="text" class="form-control" placeholder="Emailadresse" aria-describedby="basic-addon1">
+        <input name="email" type="text" class="form-control" placeholder="Emailadresse" aria-describedby="basic-addon1">
       </div>
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>

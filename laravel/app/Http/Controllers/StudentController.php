@@ -38,17 +38,17 @@ class StudentController extends Controller {
         
         $feedback = new Feedback;
         $feedback->teacher()->associate($teacher);
-        if($request->input('fishname') !== Null) {
-            $feedback->show_fishname = Request::get('fishname');
+        if($request->input('fishname') !== null) {
+            $feedback->show_fishname = $request->input('fishname');
         } else {
-            $feedback->show_fishname = False;
+            $feedback->show_fishname = false;
         }
         $feedback->content = $request->input('feedback');
         $feedback->student()->associate(Auth::user()->student);
-        if($request->input('classroom') !== Null) {
+        if($request->input('classroom') !== null) {
             $feedback->show_classroom = $request->input('classroom');
         } else {
-            $feedback->show_classroom = False;
+            $feedback->show_classroom = false;
         }
         $feedback->save();
         
