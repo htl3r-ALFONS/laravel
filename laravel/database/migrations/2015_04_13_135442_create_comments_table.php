@@ -19,6 +19,10 @@ class CreateCommentsTable extends Migration {
 			$table->integer('fk_feedback')
 				->unsigned()
 				->references('id')->on('feedback');
+            
+            $table->integer('fk_question')
+				->unsigned()
+				->references('id')->on('question');
 
 			$table->timestamp('created_at');
             

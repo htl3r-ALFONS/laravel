@@ -55,6 +55,7 @@ Neues Feedback
                 @endif
             @endforeach
             <form name="feedback" action="{{ action('StudentController@postComment') }}" method="post">
+                <input type="hidden" name="type" value="feedback">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="feedback" value="{{ $feedback->id }}">
                 <div class="input-group feedbackbox">
@@ -71,10 +72,10 @@ Neues Feedback
             @foreach ($teachers as $teacher)
             <h3>{{ $question->content }}<small> - {{ $teacher->name }}</small></h3>
             @foreach($comments as $comment)
-                @if($comment->fk_feedback === $feedback->id)
+                @if($comment->fk_question === $question->id)
                     @if($comment->from === "teacher")
                         @foreach ($teachers as $teacher)
-                            @if ($teacher->id === $feedback->fk_teacher)
+                            @if ($teacher->id === $question->fk_teacher)
                                 <div class="comment teachercomment">
                                     <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
                                 </div>
@@ -88,12 +89,17 @@ Neues Feedback
                 @endif
             @endforeach
             @endforeach
-            <div class="input-group feedbackbox">
-                <input type="text" class="form-control" placeholder="kommentieren...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Senden</button>
-                </span>
-            </div>
+            <form name="feedback" action="{{ action('StudentController@postComment') }}" method="post">
+                <input type="hidden" name="type" value="question">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="feedback" value="{{ $feedback->id }}">
+                <div class="input-group feedbackbox">
+                    <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
+                    <span class="input-group-btn">
+                        <input type="submit" value="Senden" class="btn btn-default">
+                    </span>
+                </div>
+            </form>
         </div>
         @endforeach
     </div>

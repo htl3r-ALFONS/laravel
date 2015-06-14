@@ -25,7 +25,7 @@ Deine Durchschittsbewertung (zum Zeitpunkt an dem das Feedback abgesendet wird) 
 <p>
 Sei Respektvoll. Diese Plattform ist dazu da, den Unterricht zu verbessern, Beleidigungen und Drohungen werden nicht geduldet!
 ALFONS benüzt ein Halbanonymes System, das heißt, dass im Falle eines Verstoßes, dein Name ausgeforscht werden kann.
-Ohne dieser Maßnahme ist nötig, um gegen die wenigen vorgehen zu können, die sonst das System für alle anderen zerstören würden.
+Diese Maßnahme ist nötig, um gegen die Wenigen vorgehen zu können, die sonst das System für alle anderen zerstören würden.
 Wir geben deinen Namen nur weiter, wenn ein schwerer Verstoß vorliegt. Bei adäquater Nutzung von Alfons bleibt dein Name anonym.     
 </p>
     

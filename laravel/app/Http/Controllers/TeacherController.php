@@ -4,8 +4,10 @@ use App\Teacher;
 use App\Comment;
 use App\Feedback;
 use App\Question;
-use Request;
+use Illuminate\Http\Request;
 use App\Student;
+use App\Classroom;
+use Auth;
 
 class TeacherController extends Controller {
     
@@ -20,11 +22,13 @@ class TeacherController extends Controller {
         return view('myPage.teacher.settings');
     }
     public function getFrage() {
+
         return view('myPage.teacher.questions');
     }
     //ToDo: links auf getQuestions ändern.
     public function getAskFrage() {
-        return view('myPage.teacher.newquestion');
+        return view('myPage.teacher.newquestion')
+            ->with('classes', Classroom::lists('year','id'));
     }
     
     
@@ -34,6 +38,8 @@ class TeacherController extends Controller {
     public function getProfile(){
         return view('myPage.teacher.profile');
     }
+
+    
     public function postComment(Request $request) {
         $this->validate($request, [
             'feedback' => 'required|exists:feedback,id',
@@ -45,6 +51,22 @@ class TeacherController extends Controller {
         $comment->fk_feedback = $request->input('feedback');
         $comment->created_at = new DateTime;
         $comment->save();
+        
+        return redirect()->action('TeacherController@getIndex');
+    }
+
+
+    
+    public function postNew(Request $request) {
+        
+        $class = Classroom::find($request->input('classname'));
+        
+        $question = new Question;
+        $question->teacher()->associate(Auth::user()->teacher);
+        $question->classes()->associate($class);
+        $question->content = $request->input('question');
+
+        $question->save();
         
         return redirect()->action('TeacherController@getIndex');
     }

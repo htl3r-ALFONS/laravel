@@ -17,24 +17,29 @@ Neue Frage
                 <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
-<div class="row">
-    <div class="hidden-xs col-md-4 col-lg-4">
-    </div>
-    <div class="col-md-4 col-lg-4">
-        <div class="fenster">
-            <p>
-            Frage:<br>
-            <input type="text" />
-            </p>
-            <p>
-           Beschreibung:<br>
-           <textarea rows="6" placeholder=" ...optional"></textarea>
-           </p>
-            <p style="text-align:right;">
-                <button class="btn btn-default">
-                    Absenden
-                </button>
-            </p>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-    </div>
-</div>
+    @endif
+    <h1>Stelle eine neue Frage</h1>
+
+    <hr/>
+    <!-- todo: Ganze Klassenbezeichnung anzeigen -->
+    {!! Form::open(['url' => 'teacher/new']) !!}
+        <div class="form-group">
+            {!! Form::label('classname','Klasse:') !!}
+            {!! Form::select('classname', $classes) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('question','Frage:') !!}
+            {!! Form::textarea('question', null, ['class' => 'form-control']) !!}
+            {!! Form::submit('Frage abschicken', ['class' => 'form-control']); !!}
+        </div>
+    {!! Form::close() !!}
