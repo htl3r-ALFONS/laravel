@@ -80,11 +80,8 @@ class StudentController extends Controller {
         $comment = new Comment;
         $comment->content = $request->input('content');
         $comment->from = "student";
-        if($request->input('feedback') == 'feedback') {
-            $comment->fk_feedback = $request->input('feedback');
-        } else {
-            $comment->fk_question = $request->input('feedback');
-        }
+        $comment->fk_feedback = $request->input('feedback');
+        $comment->fk_question = $request->input('question');
         $comment->created_at = new DateTime;
         $comment->save();
         
