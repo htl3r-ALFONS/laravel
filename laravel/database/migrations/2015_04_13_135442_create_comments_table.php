@@ -23,7 +23,7 @@ class CreateCommentsTable extends Migration {
             
             $table->integer('fk_question')
 				->unsigned()
-                ->nullable();
+                ->nullable()
 				->references('id')->on('question');
 
 			$table->timestamp('created_at');
