@@ -17,7 +17,6 @@ class MyController extends Controller {
         return view('myPage.richtlinien');
     }    
 
-    }
     public function impressum() {
         return view('myPage.impressum');
     }
