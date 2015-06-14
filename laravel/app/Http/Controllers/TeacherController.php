@@ -39,7 +39,7 @@ class TeacherController extends Controller {
         
         $question = new Question;
         $question->teacher()->associate(Auth::user()->teacher);
-        $question->classes()->associate($class);
+        //$question->classes()->associate($class);
         $question->content = $request->input('question');
 
         $question->save();
