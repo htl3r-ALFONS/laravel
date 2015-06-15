@@ -14,8 +14,6 @@ Neue Frage
                 </li>
                 <li><a href="{{ action('TeacherController@getAskFrage')}}">Frage erstellen</a>
                 </li>
-                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
-                </li>
                 <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
@@ -28,11 +26,8 @@ Neue Frage
         <h2>Feedbacks</h2>
         <div class="feedbackbox">
             <div class="col-md-6 col-lg-6">
-                <!-- TODO: Chronologie -->
                 @foreach ($feedbacks as $feedback)
-                <div class="feedbackbox">
-
-
+                <div class="feedbackbox" style="width:700px;">
                     <h4>Feedback von
                         @if ($feedback->show_fishname) 
                         {{ $feedback->student->fishname }}
@@ -44,24 +39,24 @@ Neue Frage
                         @endif
                     </h4>
                     <div class="feedback">
-                        <h5>Feedback:</h5>
-                        <p>{{ $feedback->content }}</p>    
+                        <h4>{{ $feedback->content }}</h4>    
                     </div>
-                    <!-- TODO: Chronologie -->
                     @foreach($comments as $comment)
                     @if($comment->fk_feedback === $feedback->id)
                     @if($comment->from === "teacher")
                     <div class="comment teachercomment">
-                        <p>{{ $feedback->teacher->name }}:{{ $comment->content }}</p>
+                        <p><b>{{ $feedback->teacher->name }}:</b> {{ $comment->content }}</p>
                     </div>
                     @else
-                    <div class="comment">
+                    <div class="comment" >
+                        <p>
                         @if ($feedback->show_fishname) 
-                        {{ $feedback->student->fishname }}:
+                        <b>{{ $feedback->student->fishname }}:</b>
                         @else
-                        Anonym:
+                        <b>Anonym:</b>
                         @endif
-                        <p>{{ $comment->content }}</p>
+                        {{ $comment->content }}
+                        </p>
                     </div>
                     @endif
                     @endif
@@ -83,14 +78,13 @@ Neue Frage
                 @endforeach
              </div>
         </div>
-        
+        </br>
         <h2>Fragen</h2>
         <div class="frage">
             <div class="col-md-4 col-lg-4">
                 @foreach ($questions as $question)
-                <div class="feedbackbox">
+                <div class="feedbackbox" style="width:700px;">
                     <h3>{{ $question->content }}</h3>
-                    <!-- Kommentare (Antworten) -->
                     <h4>Antworten:</h4>
                     @foreach ($comments as $comment)
                         @if($comment->fk_question === $question->id)
@@ -103,12 +97,11 @@ Neue Frage
                     @endforeach
                 @endforeach
 
-
-
                 </div>
             </div>
         </div>
         
     </div>
-    
+    <div class="hidden-xs col-md-3 col-lg-3">
+    </div>    
 </div>

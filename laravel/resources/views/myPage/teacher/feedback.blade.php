@@ -14,8 +14,6 @@ Neue Frage
                 </li>
                 <li><a href="{{ action('TeacherController@getAskFrage')}}">Frage erstellen</a>
                 </li>
-                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
-                </li>
                 <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
@@ -48,24 +46,25 @@ Neue Frage
                     @endif
                         </h4>
                     <div class="feedback">
-                        <h5>Feedback:</h5>
-                        <p>{{ $feedback->content }}</p>    
+                        <h4>{{ $feedback->content }}</h4>    
                     </div>
                     <!-- TODO: Chronologie -->
                     @foreach($comments as $comment)
                         @if($comment->fk_feedback === $feedback->id)
                             @if($comment->from === "teacher")
                                 <div class="comment teachercomment">
-                                    <p>{{ $feedback->teacher->name }}:{{ $comment->content }}</p>
+                                    <p><b>{{ $feedback->teacher->name }}:</b> {{ $comment->content }}</p>
                                 </div>
                             @else
                                 <div class="comment">
-                                    @if ($feedback->show_fishname) 
-                                        {{ $feedback->student->fishname }}:
-                                    @else
-                                        Anonym:
-                                    @endif
-                                    <p>{{ $comment->content }}</p>
+                                    <p>
+                                        @if ($feedback->show_fishname) 
+                                        <b>{{ $feedback->student->fishname }}:</b>
+                                        @else
+                                        <b>Anonym:</b>
+                                        @endif
+                                        {{ $comment->content }}
+                                    </p>
                                 </div>
                             @endif
                         @endif

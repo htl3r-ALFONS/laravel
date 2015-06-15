@@ -25,6 +25,9 @@ Neues Feedback
     </ul>
 </div>
 @endif
+<h6 style="margin:10px;">
+   Anmerkung: In dem sie einen der Button zum Absenden von Feedback bzw. Kommentaren betätigen bestätigen sie die <a href="{{ action('MyController@richtlinien') }}" target="_blank">Richtlinien </a>gelesen zu haben und zu befolgen! 
+<h6>
 <div class="row">
     <div class="hidden-xs col-md-3 col-lg-3">
     </div>
