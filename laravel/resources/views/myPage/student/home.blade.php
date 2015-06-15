@@ -69,20 +69,20 @@ Neues Feedback
         @foreach ($questions as $question)
         <div class="frage">
             <h2>Fragen:</h2>
-            <h3>{{ $question->content }}<small> - {{ $question->fk_teacher }}</small></h3>
+            <h3>{{ $question->content }}<small> - {{ $question->teacher->name }}</small></h3>
             @foreach($comments as $comment)
                 @if($comment->fk_question === $question->id)
                     @if($comment->from === "teacher")
                         @foreach ($teachers as $teacher)
                             @if ($teacher->id === $question->fk_teacher)
                                 <div class="comment teachercomment">
-                                    <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
+                                    <p><b>{{ $teacher->name }}:</b> {{ $comment->content }}</p>
                                 </div>
                             @endif
                         @endforeach
                     @else
                         <div class="comment">
-                            <p><a href="#"><b>Du:</b></a> {{ $comment->content }}</p>
+                            <p><b>Du:</b> {{ $comment->content }}</p>
                         </div>
                     @endif
                 @endif
