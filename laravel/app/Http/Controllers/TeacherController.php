@@ -58,15 +58,13 @@ class TeacherController extends Controller {
 
     
     public function postNew(Request $request) {
-        
-        $class = Classroom::find($request->input('classname'));
-        
         $question = new Question;
         $question->teacher()->associate(Auth::user()->teacher);
-        //$question->classes()->associate($class);
         $question->content = $request->input('question');
 
         $question->save();
+        
+        $question->classes()->attach($request->input('classname'));
         
         return redirect()->action('TeacherController@getIndex');
     }
