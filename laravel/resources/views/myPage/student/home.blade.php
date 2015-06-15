@@ -32,10 +32,9 @@ Neues Feedback
         <h1>Willkommen! <small>Neue Kommentare & Fragen</small></h1>
         @foreach ($feedbacks as $feedback)
         <div class="feedbackbox">
-            <h4>Feedback an {{ $feedback->teacher->name }}</h4>
+            <h3>Feedback <small>- {{ $feedback->teacher->name }}</small></h3>
             <div class="feedback">
-            <h5><b>Du:</b></h5>
-            <p>{{ $feedback->content }}</p>    
+                <h4>{{ $feedback->content }}   </h4>
             </div>
             @foreach($comments as $comment)
                 @if($comment->fk_feedback === $feedback->id)
@@ -68,8 +67,10 @@ Neues Feedback
         @endforeach
         @foreach ($questions as $question)
         <div class="frage">
-            <h2>Fragen:</h2>
-            <h3>{{ $question->content }}<small> - {{ $question->teacher->name }}</small></h3>
+            <h3>Frage <small> - {{ $question->teacher->name }}</small></h3>
+            <div class="feedback">
+                <h4>{{ $question->content }}</h4>
+            </div>
             @foreach($comments as $comment)
                 @if($comment->fk_question === $question->id)
                     @if($comment->from === "teacher")
