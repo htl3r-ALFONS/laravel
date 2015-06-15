@@ -27,7 +27,7 @@ Neue Frage
         <div class="feedbackbox">
             <div class="col-md-6 col-lg-6">
                 @foreach ($feedbacks as $feedback)
-                <div class="feedbackbox">
+                <div class="feedbackbox" style="width:700px;">
                     <h4>Feedback von
                         @if ($feedback->show_fishname) 
                         {{ $feedback->student->fishname }}
@@ -45,16 +45,18 @@ Neue Frage
                     @if($comment->fk_feedback === $feedback->id)
                     @if($comment->from === "teacher")
                     <div class="comment teachercomment">
-                        <p>{{ $feedback->teacher->name }}:{{ $comment->content }}</p>
+                        <p><b>{{ $feedback->teacher->name }}:</b> {{ $comment->content }}</p>
                     </div>
                     @else
-                    <div class="comment">
+                    <div class="comment" >
+                        <p>
                         @if ($feedback->show_fishname) 
-                        {{ $feedback->student->fishname }}:
+                        <b>{{ $feedback->student->fishname }}:</b>
                         @else
-                        Anonym:
+                        <b>Anonym:</b>
                         @endif
-                        <p>{{ $comment->content }}</p>
+                        {{ $comment->content }}
+                        </p>
                     </div>
                     @endif
                     @endif
@@ -76,12 +78,12 @@ Neue Frage
                 @endforeach
              </div>
         </div>
-        
+        </br>
         <h2>Fragen</h2>
         <div class="frage">
             <div class="col-md-4 col-lg-4">
                 @foreach ($questions as $question)
-                <div class="feedbackbox">
+                <div class="feedbackbox" style="width:700px;">
                     <h3>{{ $question->content }}</h3>
                     <h4>Antworten:</h4>
                     @foreach ($comments as $comment)
@@ -94,8 +96,6 @@ Neue Frage
                         @endif
                     @endforeach
                 @endforeach
-
-
 
                 </div>
             </div>
