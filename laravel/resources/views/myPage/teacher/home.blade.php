@@ -14,8 +14,6 @@ Neue Frage
                 </li>
                 <li><a href="{{ action('TeacherController@getAskFrage')}}">Frage erstellen</a>
                 </li>
-                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
-                </li>
                 <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
@@ -28,11 +26,8 @@ Neue Frage
         <h2>Feedbacks</h2>
         <div class="feedbackbox">
             <div class="col-md-6 col-lg-6">
-                <!-- TODO: Chronologie -->
                 @foreach ($feedbacks as $feedback)
                 <div class="feedbackbox">
-
-
                     <h4>Feedback von
                         @if ($feedback->show_fishname) 
                         {{ $feedback->student->fishname }}
@@ -44,10 +39,8 @@ Neue Frage
                         @endif
                     </h4>
                     <div class="feedback">
-                        <h5>Feedback:</h5>
-                        <p>{{ $feedback->content }}</p>    
+                        <h4>{{ $feedback->content }}</h4>    
                     </div>
-                    <!-- TODO: Chronologie -->
                     @foreach($comments as $comment)
                     @if($comment->fk_feedback === $feedback->id)
                     @if($comment->from === "teacher")
@@ -90,7 +83,6 @@ Neue Frage
                 @foreach ($questions as $question)
                 <div class="feedbackbox">
                     <h3>{{ $question->content }}</h3>
-                    <!-- Kommentare (Antworten) -->
                     <h4>Antworten:</h4>
                     @foreach ($comments as $comment)
                         @if($comment->fk_question === $question->id)
@@ -110,5 +102,6 @@ Neue Frage
         </div>
         
     </div>
-    
+    <div class="hidden-xs col-md-3 col-lg-3">
+    </div>    
 </div>

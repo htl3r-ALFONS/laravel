@@ -14,8 +14,6 @@ Neue Frage
                 </li>
                 <li><a href="{{ action('TeacherController@getAskFrage')}}">Frage erstellen</a>
                 </li>
-                <li><a href="{{ action('TeacherController@getProfile')}}">Profil</a>
-                </li>
                 <li><a href="{{ action('TeacherController@getSettings')}}">Einstellungen</a>
                 </li>
 @stop
