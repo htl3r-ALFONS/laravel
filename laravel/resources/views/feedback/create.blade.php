@@ -28,7 +28,9 @@ Neues Feedback
     <h1>Write a new Feedback</h1>
 
     <hr/>
-
+    
+    <div>
+        
     {!! Form::open(['url' => 'student/new']) !!}
         <div class="form-group">
             {!! Form::label('teacher','Lehrer:') !!}
@@ -45,3 +47,6 @@ Neues Feedback
             {!! Form::submit('Send Feedback', ['class' => 'form-control']); !!}
         </div>
     {!! Form::close() !!}
+        
+        
+</div>

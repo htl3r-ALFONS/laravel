@@ -1,10 +1,14 @@
 @extends('myPage.masterview')
 <!--- TODO: 2. login für lehrer -->
 
+<div class="loginposition">
+    
+
 <!--Schüler Login -->
 <div class="login_form">
     <h1>Schüler</h1>
     <p class="bold">Verwende deinen Fischnamen und dein Passwort</p>
+      
     <form action="{{ action('Auth\LoginController@postStudent') }}" method="post">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="input-group">
@@ -16,7 +20,8 @@
         <input name="password" type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
       </div>
       <button type="submit" class="btn btn-primary btn-block">Login</button>
-    </form>  
+    </form>
+      
 </div>
 
 
@@ -38,3 +43,5 @@
       <button type="submit" class="btn btn-primary btn-block">Login</button>
     </form>  
 </div>
+    
+   </div>

@@ -2397,6 +2397,7 @@ input[type="search"] {
 }
 .form-group {
   margin-bottom: 15px;
+  text-align:center;
 }
 .radio,
 .checkbox {
@@ -3999,6 +4000,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
+     
   }
   .navbar-form .form-control {
     display: inline-block;
