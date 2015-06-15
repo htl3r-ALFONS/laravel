@@ -1,5 +1,5 @@
 @extends('myPage.masterview')
-
+<div style="margin:30px;">
 <h1>Inhalt:</h1>
 <ul>
     <li><a href="#allgemeineInfos">Allgemeien Informationen</a></li>
@@ -59,3 +59,4 @@ Verstöße und Folgen:
         <td>Löschung des Accounts.</td>
     </tr>
 </table>
+</div>
