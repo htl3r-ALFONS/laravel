@@ -42,8 +42,8 @@ Verstöße und Folgen:
     
     <tr>
         <td>Beleidigungen</td>
-        <td>Jegliches Feedback, das eine Beleidigung enthällt.
-        ZB: "Sie sind ein Arschloch!"</td>
+        <td>Jegliches Feedback, das eine Beleidigung enthält.
+        zB: "Sie sind ein Arschloch!"</td>
         <td>Dein Name wird ausgeforscht und dem entsprechenden Lehrer mitgeteilt. Disziplinäre Maßnahmen, sowie strafrechtliche Anzeigen können folgen.</td>
     </tr>
     

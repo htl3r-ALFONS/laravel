@@ -8,7 +8,7 @@ Neues Feedback
 @section('active')
                 <li><a href="{{ action('StudentController@getIndex') }}">Home</a>
                 </li>
-                <li><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
+                <li class="active"><a href="{{ action('StudentController@getFeedback') }}">Mein Feedback</a>
                 </li>
                 <li><a href="{{ action('StudentController@getSettings') }}">Einstellungen</a>
                 </li>
@@ -28,14 +28,13 @@ Neues Feedback
     @endif
     <div class="hidden-xs col-md-3 col-lg-3">
     </div>
-    <div class="col-md-6 col-lg-6">
+    <div class="col-md- col-lg-6">
         <h2>Feedback:</h2>
         @foreach ($feedbacks as $feedback)
                 <div class="feedbackbox">
-                    <h4>Feedback an {{ $feedback->teacher->name }}</h4>
+                    <h3>Feedback <small>- {{ $feedback->teacher->name }}</small></h3>
                     <div class="feedback">
-                    <h5><b>Du:</b></h5>
-                    <p>{{ $feedback->content }}</p>    
+                        <h4>{{ $feedback->content }}</h4>   
                     </div>
                     @foreach($comments as $comment)
                         @if($comment->fk_feedback === $feedback->id)
