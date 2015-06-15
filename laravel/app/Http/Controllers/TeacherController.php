@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
 use App\Teacher;
 use App\Comment;
 use App\Feedback;
@@ -23,7 +24,7 @@ class TeacherController extends Controller {
     }
     public function getFrage() {
 
-        return view('myPage.teacher.questions');
+        return view('myPage.teacher.questions', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
     }
     //ToDo: links auf getQuestions ändern.
     public function getAskFrage() {
@@ -33,28 +34,33 @@ class TeacherController extends Controller {
     
     
     public function getFeedback() {
-        return view('myPage.teacher.feedback', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
+        return view('myPage.teacher.feedback', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all(), 'classroom' => Classroom::all()]);
     }
     public function getProfile(){
         return view('myPage.teacher.profile');
     }
 
     
+
     public function postComment(Request $request) {
         $this->validate($request, [
-            'feedback' => 'required|exists:feedback,id',
+            'feedback' => 'required_without:question|exists:feedback,id',
+            'question' => 'required_without:feedback|exists:questions,id',
             'content' => 'required|string'
         ]);
         $comment = new Comment;
         $comment->content = $request->input('content');
         $comment->from = "teacher";
-        $comment->fk_feedback = $request->input('feedback');
+        if ($request->has('feedback')) {
+            $comment->fk_feedback = $request->input('feedback');
+        } else {
+            $comment->fk_question = $request->input('question');
+        }
         $comment->created_at = new DateTime;
         $comment->save();
         
         return redirect()->action('TeacherController@getIndex');
     }
-
 
     
     public function postNew(Request $request) {
@@ -68,7 +74,7 @@ class TeacherController extends Controller {
 
         $question->save();
         
-        return redirect()->action('TeacherController@getIndex');
+        return redirect()->action('TeacherController@getFeedback');
     }
 
 }

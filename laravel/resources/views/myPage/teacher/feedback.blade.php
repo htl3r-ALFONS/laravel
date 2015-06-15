@@ -39,10 +39,14 @@ Neue Frage
                     
                     <h4>Feedback von
                     @if ($feedback->show_fishname) 
-                        {{ $feedback->student->fishname }}</h4>
+                        {{ $feedback->student->fishname }}
                     @else
                         Anonym
                     @endif
+                    @if ($feedback->show_classroom) 
+                        aus der {{ $feedback->student->classroom->year }}{{ $feedback->student->classroom->letter }}{{ $feedback->student->classroom->branch }}
+                    @endif
+                        </h4>
                     <div class="feedback">
                         <h5>Feedback:</h5>
                         <p>{{ $feedback->content }}</p>    
@@ -52,28 +56,31 @@ Neue Frage
                         @if($comment->fk_feedback === $feedback->id)
                             @if($comment->from === "teacher")
                                 <div class="comment teachercomment">
-                                    <p><a href="#"><b>{{ $teacher->name }}:</b></a> {{ $comment->content }}</p>
+                                    <p>{{ $feedback->teacher->name }}:{{ $comment->content }}</p>
                                 </div>
                             @else
                                 <div class="comment">
-                                    <p><b>
-                                        @if ($feedback->show_fishname) 
-                                            {{ $feedback->student->fishname }}</h4>
-                                        @else
-                                            Anonym
-                                        @endif
-                                    </b> {{ $comment->content }}</p>
+                                    @if ($feedback->show_fishname) 
+                                        {{ $feedback->student->fishname }}:
+                                    @else
+                                        Anonym:
+                                    @endif
+                                    <p>{{ $comment->content }}</p>
                                 </div>
                             @endif
                         @endif
                     @endforeach
                     <!-- ToDo: form testen -->
                         <div class="form-group">
-                            <form href="{{ action('TeacherController@postComment') }}">
-                                <input type="text" name="content" class="form-control" placeholder="kommentieren...">
-                                <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-default">
-                                </span>
+                            <form name="feedback" action="{{ action('TeacherController@postComment') }}" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="feedback" value="{{ $feedback->id }}">
+                                <div class="input-group feedbackbox">
+                                    <input type="text" name="content" class="form-control" placeholder="kommentieren..."/>
+                                    <span class="input-group-btn">
+                                        <input type="submit" value="Senden" class="btn btn-default">
+                                    </span>
+                                </div>
                             </form>
                         </div>
                 </div>
