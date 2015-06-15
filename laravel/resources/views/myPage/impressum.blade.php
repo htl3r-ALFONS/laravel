@@ -5,8 +5,10 @@
                 2015<br>
                 Rennweg 89b<br>
                 1030 Wien</p>
-                <h3>Verantwortlich f&uuml;r den Inhalt:</h3>
+                <h3>Seiteninhaber:</h3>
                 <p>Lukas Mörtl, Projektleiter</p>
                 <h3>Kontakt:</h3>
-                <p>E-Mail: admin@teamalfons.at</p>
+                <p>E-Mail: lukas.moertl@gmx.at</p>
+                <p>Adresse: Denisgasse 30-34/1/20</p>
+        
 </div>
