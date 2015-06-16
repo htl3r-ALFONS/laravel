@@ -13,6 +13,8 @@ class RegisterController extends Controller {
     
     public function __construct(TeacherPasswordBroker $passwords) {
         $this->passwords = $passwords;
+        
+        $this->middleware('register');
     }
     
     public function getIndex() {
