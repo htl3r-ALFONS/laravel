@@ -17,7 +17,7 @@ class TeacherController extends Controller {
     }
     
     public function getIndex() {
-        return view('myPage.teacher.home', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
+        return view('myPage.teacher.feedback', ['students' => Student::all(), 'comments' => Comment::all(), 'feedbacks' => Feedback::all(), 'questions' => Question::all()]);
     }
     public function getSettings() {
         return view('myPage.teacher.settings');
