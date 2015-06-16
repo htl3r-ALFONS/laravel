@@ -33,7 +33,7 @@ Neues Feedback
     </div>
     <div class="col-md-6 col-lg-6">
         <h1>Willkommen! <small>Neue Kommentare & Fragen</small></h1>
-        @foreach ($feedbacks as $feedback)
+        @foreach (Auth::user()->student->feedback as $feedback)
         <div class="feedbackbox">
             <h3>Feedback <small>- {{ $feedback->teacher->name }}</small></h3>
             <div class="feedback">
