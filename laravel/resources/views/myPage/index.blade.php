@@ -10,7 +10,7 @@
             <div class="inhalt col-md-7 col-lg-7">
                 <h1>Anonymes Feedback</h1>
                 <p class="bold">
-                    ALFONS steht für „Anonymes Lehrer Online Feedback System“. Und genau das ist die Philosophie dieser Plattform. Schüler können Lehrern anonym Feedback geben.
+                    ALFONS steht für „Anonymes Lehrer Feedback ONline System“. Und genau das ist die Philosophie dieser Plattform. Schüler können Lehrern anonym Feedback geben.
                     Lehrer können spezifische Fragen an Schüler stellen, um den Unterricht gezielt zu verbessern.
                     Solche Systeme stoßen von Seiten der Lehrer oft auf Widerstand, sie fürchten nicht konstruktive Kritik (was bei einer Schule sehr gerechtfertigt ist).
                     Deshalb haben wir ein halbanonymes System entwickelt, bei dem es über mehrere Instanzen möglich ist, den Feedbackgebenden auszuforschen:
