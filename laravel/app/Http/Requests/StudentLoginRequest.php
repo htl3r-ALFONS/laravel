@@ -6,7 +6,7 @@ use Response;
 class StudentLoginRequest extends FormRequest {
     public function rules() {
         return [
-            'fishname' => 'required',
+            'fishname' => 'required|exists:students,fishname',
             'password' => 'required'
         ];
     }
